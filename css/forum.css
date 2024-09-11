@@ -1,0 +1,951 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&family=Noto+Sans+TC:wght@100..900&display=swap');
+/* utf8一定要在行數1 */
+/* import 一定要在第二行 */
+
+/* 顏色設定(設定變數) */
+:root {
+    /* 灰階 */
+    --black: #000000;
+    --darkgrey: rgb(44, 44, 44);
+    --lightgrey: rgb(88, 88, 88);
+    --white: #ffffff;
+
+    /* 主色 */
+    --primary: #155569;
+    --secondary: #FFA800;
+    --secondary-hover: #e29909;
+
+    /* 透明 */
+    --alpha-w-40: rgba(255, 255, 255, .4);
+    --alpha-w-60: rgba(255, 255, 255, .6);
+    --alpha-w-80: rgba(255, 255, 255, .8);
+    --alpha-b-20: rgba(0, 0, 0, .2);
+    --alpha-b-40: rgba(0, 0, 0, 0.4);
+    --alpha-b-60: rgba(0, 0, 0, 0.6);
+    --alpha-lg-10: rgba(88, 88, 88, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 不累加padding */
+}
+
+/* 重置字體 */
+body {
+    font-family:
+        /*西文*/
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        /*中文*/
+        "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 重置圖片 */
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 重置連接 */
+a {
+    color: #444;
+    display: block;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1140px;
+}
+
+.forum-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.forum_body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 20px 0 30px;
+}
+
+/* 左側總容器 */
+.forum-left {
+    width: 100%;
+    max-width: 330px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* 右側總容器 */
+.forum-right {
+    width: 100%;
+    max-width: 780px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: 20px;
+}
+
+/* 布告欄 */
+.body_bulletin {
+    width: auto;
+    height: auto;
+    max-width: 330px;
+    max-height: 630px;
+    display: flex;
+    box-sizing: border-box;
+    margin-bottom: 38px;
+}
+
+/* 布告欄btn */
+.body_bulletin .categories,
+.body_tagVdo .tagVdo_categories {
+    width: 32px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.body_bulletin .categories div,
+.body_tagVdo .tagVdo_categories div {
+    width: 100%;
+    height: 105px;
+    text-align: center;
+    line-height: 29px;
+    margin-bottom: 10px;
+    writing-mode: vertical-lr;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-size: .9rem;
+    font-weight: 500;
+    color: #155569;
+}
+
+/* 當前選中的類別 */
+.body_bulletin .categories .active {
+    pointer-events: none;
+    border: 1px solid transparent;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.body_bulletin .categories div:hover {
+    border: 1px solid var(--primary);
+}
+
+/* 布告欄內容區域 */
+.bulletin_content {
+    padding: 0 10px;
+    flex-grow: 1;
+    width: 290px;
+    height: auto;
+    border: 1px solid var(--alpha-b-20);
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: var(--alpha-w-40);
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+}
+
+/* -- 布告欄-新手指南 -- */
+/* 初始隱藏所有內容 */
+.bulletin_content>div {
+    display: none;
+}
+
+.bulletin_content>.active {
+    display: block;
+}
+
+.categories div {
+    cursor: pointer;
+}
+
+.body_guide_content,
+.body_special_content {
+    padding: 0 10px;
+    margin-bottom: 1.5rem;
+}
+
+.bulletin_content h2 {
+    margin-top: 20px;
+    font-size: .92rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    pointer-events: none;
+}
+
+.bulletin_content h3 {
+    margin-top: 5px;
+    font-size: .88rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin-left: 8px;
+    pointer-events: none;
+}
+
+.bulletin_content p,
+.body_special_content p {
+    margin-top: 5px;
+    font-size: .88rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin-left: 8px;
+    pointer-events: none;
+}
+
+.body_special_content small {
+    margin-bottom: 2rem;
+    margin-left: 8px;
+    font-size: .88rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    pointer-events: none;
+}
+
+.special_more-link {
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    margin: 1.2rem 10px 1.5rem 10px;
+}
+
+.special_more-link a {
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: .9rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.special_more-link a:hover {
+    background-color: var(--secondary-hover);
+    color: var(--white);
+    transition: .25s ease;
+}
+
+.body_rank_content {
+    padding: 0 10px;
+    margin-bottom: 1.5rem;
+}
+
+.body_rank_content h2 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.body_rank_content p {
+    margin-bottom: 15px;
+    font-size: .88rem;
+    letter-spacing: .1rem;
+    pointer-events: none;
+}
+
+.ranking-item a {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.rank-number,
+.tag-name,
+.tag-num {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+}
+
+.rank-number {
+    font-weight: bold;
+    color: var(--primary);
+    margin-left: 8px;
+}
+
+.tag-name {
+    color: var(--darkgrey);
+    white-space: nowrap;
+    transition: .1s ease;
+}
+
+.tag-name:hover {
+    scale: 1.02;
+}
+
+/* --熱門標籤 影片-- */
+.body_tagVdo {
+    display: flex;
+    align-items: flex-start;
+    width: auto;
+    height: auto;
+    max-width: 330px;
+    max-height: 330px;
+}
+
+.tagVdo_content {
+    display: flex;
+    align-items: center;
+}
+
+.body_hotTag_content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    flex-grow: 1;
+    width: 290px;
+    height: auto;
+    border: 1px solid var(--alpha-b-20);
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: var(--alpha-w-40);
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    pointer-events: none;
+}
+
+.hotTag-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 10px;
+    font-size: .88rem;
+    letter-spacing: .1rem;
+}
+
+.hotTag-rank {
+    font-weight: bold;
+    color: var(--primary);
+    margin-left: 8px;
+    margin-right: 10px;
+}
+
+.hotTag-name {
+    white-space: nowrap;
+    margin-right: 20px;
+    /* transition: 0.1s ease; */
+}
+
+/* .hotTag-name:hover {
+    scale: 1.02;
+} */
+
+.body_hotVdo_content .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+    height: 350px;
+}
+
+.body_hotVdo_content .video-item {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.body_hotVdo_content .video-item iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* 當前選中的類別 */
+.body_tagVdo .tagVdo_categories .active {
+    pointer-events: none;
+    border: 1px solid transparent;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.body_tagVdo .tagVdo_categories div:hover {
+    border: 1px solid var(--primary);
+}
+
+.body_tagVdo .body_hotTag_content {
+    display: block;
+    width: 100%;
+}
+
+.body_tagVdo .body_hotVdo_content {
+    display: none;
+    width: 100%;
+}
+
+/* 顯示當前選中內容 */
+.body_tagVdo .body_hotTag_content.active,
+.body_tagVdo .body_hotVdo_content.active {
+    display: block;
+}
+
+/* 隱藏未選中內容 */
+.body_tagVdo .body_hotTag_content:not(.active),
+.body_tagVdo .body_hotVdo_content:not(.active) {
+    display: none;
+}
+
+/* ----------右側容器---------- */
+.body_news,
+.body_atc,
+.body_teach {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.news_container,
+.atc_container,
+.teach_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+}
+
+.news_categories,
+.atc_categories,
+.teach_categories {
+    gap: 10px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-size: .9rem;
+    letter-spacing: 5px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.news_hotEvt,
+.news_limitEvt,
+.news_normalEvt,
+.atc_hotAtc,
+.atc_niceAtc,
+.atc_normalAtc,
+.teach_baseWine,
+.teach_bartendWine,
+.teach_teachWine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.body_news .news_categories div,
+.body_atc .atc_categories div,
+.body_teach .teach_categories div {
+    padding: 1px 15px 2px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.body_news .news_categories .active,
+.body_atc .atc_categories .active,
+.body_teach .teach_categories .active {
+    background-color: #155569;
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+
+.body_news .news_categories div:hover,
+.body_atc .atc_categories div:hover,
+.body_teach .teach_categories div:hover {
+    border: 1px solid #155569;
+}
+
+/* 跳轉按鈕 */
+.news_more-link button,
+.atc_more-link button,
+.teachs_more-link button {
+    width: 140px;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    padding: 5px 10px;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 20px 0 10px 20px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.news_more-link button:hover,
+.atc_more-link button:hover,
+.teachs_more-link button:hover {
+    background-color: var(--secondary-hover);
+
+}
+
+/* 活動區 */
+.news_content,
+.limitEvt_content,
+.normalEvt_content {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    height: 430px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.news_content.active,
+.limitEvt_content.active,
+.normalEvt_content.active {
+    display: grid;
+    padding-top: 10px;
+}
+
+.news_content .news,
+.limitEvt_content .limitEvt,
+.normalEvt_content .normalEvt {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.news_content .news h2,
+.limitEvt_content .limitEvt h2,
+.normalEvt_content .normalEvt h2 {
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    box-sizing: border-box;
+    z-index: 1;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+}
+
+.evt-pic1,
+.evt-pic2,
+.evt-pic3,
+.evt-pic4,
+.evt-pic5,
+.evt-pic6,
+.evt-pic7,
+.evt-pic8,
+.evt-pic9,
+.evt-pic10 {
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.evt-pic1:hover,
+.evt-pic2:hover,
+.evt-pic3:hover,
+.evt-pic4:hover,
+.evt-pic5:hover,
+.evt-pic6:hover,
+.evt-pic7:hover,
+.evt-pic8:hover,
+.evt-pic9:hover,
+.evt-pic10:hover {
+    scale: 0.99;
+}
+
+.evt-pic1 {
+    background-image: url('../img/forum/forum_right_pic/event-1.jpg');
+}
+
+.evt-pic2 {
+    background-image: url('../img/forum/forum_right_pic/event-2.jpg');
+}
+
+.evt-pic3 {
+    background-image: url('../img/forum/forum_right_pic/event-3.jpg');
+}
+
+.evt-pic4 {
+    background-image: url('../img/forum/forum_right_pic/event-4.jpg');
+}
+
+.evt-pic5 {
+    background-image: url('../img/forum/forum_right_pic/event-5.jpg');
+}
+
+.evt-pic6 {
+    background-image: url('../img/forum/forum_right_pic/event-6.jpg');
+}
+
+.evt-pic7 {
+    background-image: url('../img/forum/forum_right_pic/event-7.jpg');
+}
+
+.evt-pic8 {
+    background-image: url('../img/forum/forum_right_pic/event-8.jpg');
+}
+
+.evt-pic9 {
+    background-image: url('../img/forum/forum_right_pic/event-9.jpg');
+}
+
+.evt-pic10 {
+    background-image: url('../img/forum/forum_right_pic/event-10.jpg');
+}
+
+.article_evt {
+    border: none;
+    background-color: transparent;
+}
+
+/* 文章區 */
+.body_atc {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.hotAtc-row1,
+.hotAtc-row2,
+.niceAtc-row1,
+.niceAtc-row2,
+.normalAtc-row1,
+.normalAtc-row2 {
+    display: flex;
+    width: 100%;
+}
+
+.hotAtc_content,
+.niceAtc_content,
+.normalAtc_content {
+    margin-top: 10px;
+    display: none;
+}
+
+.hotAtc_content.active,
+.niceAtc_content.active,
+.normalAtc_content.active {
+    display: block;
+}
+
+.hotAtc_inner,
+.niceAtc_inner,
+.normalAtc_inner {
+    width: 200px;
+    height: 270px;
+}
+
+.inner-pic1 {
+    background-image: url(../img/forum/forum_right_pic/atc1.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95%;
+    transition: .25s ease;
+}
+
+.inner-pic2 {
+    background-image: url(../img/forum/forum_right_pic/atc2.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95%;
+    transition: .25s ease;
+}
+
+.inner-pic3 {
+    background-image: url(../img/forum/forum_right_pic/atc3.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95%;
+    transition: .25s ease;
+}
+
+.inner-pic4 {
+    background-image: url(../img/forum/forum_right_pic/atc4.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95%;
+    transition: .25s ease;
+}
+
+.inner-pic5 {
+    background-image: url(../img/forum/forum_right_pic/atc5.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95%;
+    transition: .25s ease;
+}
+
+.inner-pic6 {
+    background-image: url(../img/forum/forum_right_pic/atc6.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95%;
+    transition: .25s ease;
+}
+
+.inner-pic7 {
+    background-image: url(../img/forum/forum_right_pic/atc7.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95%;
+    transition: .25s ease;
+}
+
+.inner-pic8 {
+    background-image: url(../img/forum/forum_right_pic/atc8.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95%;
+    transition: .25s ease;
+}
+
+.inner-pic1:hover,
+.inner-pic2:hover,
+.inner-pic3:hover,
+.inner-pic4:hover,
+.inner-pic5:hover,
+.inner-pic6:hover,
+.inner-pic7:hover,
+.inner-pic8:hover {
+    scale: 0.99;
+}
+
+/* 教學區 */
+.body_teach {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.baseWine_content,
+.bartendWine_content,
+.teachWine_content {
+    display: none;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    margin: 10px 0;
+    padding-top: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    list-style: none;
+}
+
+.baseWine_content.active,
+.bartendWine_content.active,
+.teachWine_content.active {
+    display: flex;
+}
+
+/* 六大基酒圖片 */
+.baseWinePic1 {
+    background-image: url('../img/forum/forum_right_pic/base1.jpg');
+}
+
+.baseWinePic2 {
+    background-image: url('../img/forum/forum_right_pic/base2.jpg');
+}
+
+.baseWinePic3 {
+    background-image: url('../img/forum/forum_right_pic/base3.jpg');
+}
+
+.baseWinePic4 {
+    background-image: url('../img/forum/forum_right_pic/base4.jpg');
+}
+
+/* 經典調酒圖片 */
+.bartendWinePic1 {
+    background-image: url('../img/forum/forum_right_pic/bartend1.jpg');
+}
+
+.bartendWinePic2 {
+    background-image: url('../img/forum/forum_right_pic/bartend2.jpg');
+}
+
+.bartendWinePic3 {
+    background-image: url('../img/forum/forum_right_pic/bartend3.jpg');
+}
+
+.bartendWinePic4 {
+    background-image: url('../img/forum/forum_right_pic/bartend4.jpg');
+}
+
+.baseWinePic1,
+.baseWinePic2,
+.baseWinePic3,
+.baseWinePic4,
+.bartendWinePic1,
+.bartendWinePic2,
+.bartendWinePic3,
+.bartendWinePic4 {
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .25s ease;
+    cursor: pointer;
+}
+
+.baseWinePic1:hover,
+.baseWinePic2:hover,
+.baseWinePic3:hover,
+.baseWinePic4:hover,
+.bartendWinePic1:hover,
+.bartendWinePic2:hover,
+.bartendWinePic3:hover,
+.bartendWinePic4:hover {
+    scale: 0.98;
+}
+
+/* 遮罩跟彈出視窗 */
+/* 初始狀態：遮罩隱藏 */
+.overlay-teach {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+}
+
+/* 中心顯示圖片 */
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ececec;
+    padding: 20px;
+}
+
+/* 大圖片樣式 */
+.overlay-content img {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .forum_body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .forum-right {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .forum-left {
+        order: 2;
+        display: flex;
+    }
+
+    .body_bulletin {
+        width: auto;
+        height: auto;
+        max-width: 450px;
+        max-height: 600px;
+        margin-right: 60px;
+    }
+
+    .body_tagVdo {
+        display: flex;
+        max-width: 400px;
+    }
+
+    .hotTag-item {
+        max-width: 400px;
+        display: flex;
+    }
+
+    .hotTag-num {
+        display: block;
+        width: 90px;
+    }
+
+    .body_hotVdo_content .grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+        height: 350px;
+    }
+}

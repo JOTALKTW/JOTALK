@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOTALK – 論壇首頁</title>
+    <link rel="icon" href="./favicon.ico">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" src="./Header_element/Header.jsx"></script>
+    <link rel="stylesheet" href="./Header_element/Header.css">
+
+    <script type="text/babel" src="./helper_element/helper.jsx"></script>
+    <link rel="stylesheet" href="./helper_element/helper.css">
+
+    <!-- 活動彈出元件 -->
+    <script type="text/babel" src="./Activity_element/Activity.jsx"></script>
+    <link rel="stylesheet" href="./Activity_element/Activity.css">
+
+    <script type="text/babel" src="./Post_element/Post.jsx"></script>
+    <link rel="stylesheet" href="./Post_element/Post.css">
+
+    <script type="text/babel" src="./Footer_element/Footer.jsx"></script>
+    <link rel="stylesheet" href="./Footer_element/Footer.css">
+
+    <link rel="stylesheet" href="./css/forum.css">
+</head>
+
+<body>
+    <!-- 頁首元件 -->
+    <div id="header"></div>
+    <script type="text/babel">
+        function App() {
+
+            React.useEffect(() => {
+                login();
+            }, []); // 空依賴陣列表示只在組件掛載和卸載時執行
+
+            return (
+                <Header h1="LET'S JOTALK" bg='./img/forum/forum_head_pic.jpg' leftSlogan='' slogan={true} btn={true} />
+            )
+        }
+
+        ReactDOM
+            .createRoot(document.getElementById('header'))
+            .render(<App />)
+    </script>
+
+    <!-- 遮罩及點擊圖片顯示彈出視窗的區塊 -->
+    <div id="image-overlay" class="overlay-teach">
+        <div class="overlay-content">
+            <img id="overlay-image" src="" alt="大圖">
+        </div>
+    </div>
+
+    <main>
+        <img class="forum-bg" src="./img/bg-tree.jpg"></img>
+        <section class="forum_body">
+            <!-- 左側欄位 -->
+            <div class="forum-left">
+                <!-- 布告欄 -->
+                <div class="body_bulletin">
+                    <div class="categories">
+                        <div class="body_guide active">新 手 指 南</div>
+                        <div class="body_special">本 月 福 利</div>
+                        <div class="body_rank">成 就 排 名</div>
+                    </div>
+                    <div class="bulletin_content">
+                        <div class="body_guide_content active">
+                            <h2>【尊重友善包容】</h2>
+                            <p>請尊重其他用戶，保持友善和包容的態度，避免任何形式的攻擊性言論。</p>
+                            <h2>【真實分享】</h2>
+                            <p>請真實分享你的酒吧探店心得，保持評論的真實性和可信度。</p>
+                            <h2>【標明業配】</h2>
+                            <p>如果你的文章是業配，請在文章開頭明確標明，讓讀者知情。</p>
+                            <h2>【會員分級制度】</h2>
+                            <p>透過發文、探店數量以及獲得的按讚和分享數來獲取積分，提升會員等級。</p>
+                            <h2>【積分兌換優惠】</h2>
+                            <p>積分可兌換論壇提供的相關優惠，積極參與以獲取更多積分。</p>
+                            <h2>【報告不當行為】</h2>
+                            <p>如果你發現有任何不當行為或內容，請及時向論壇管理員報告。</p>
+                        </div>
+                        <div class="body_special_content">
+                            <h2>【本月壽星】</h2>
+                            <p>我們請你喝SHOT!</p>
+                            <p>前往指定酒吧出示JOTALK網站兌換券，即可享有生日禮。</p>
+                            <h2>【新加入會員】</h2>
+                            <p>我們請你喝迎賓酒！</p>
+                            <p>前往指定酒吧出示JOTALK網站兌換券，即可享有店家特色調酒一杯。</p>
+                            <h2>【會員階級獎勵】</h2>
+                            <h3>等級：酒吧專家</h3>
+                            <small> 合作廠商-護肝丸一瓶</small>
+                            <h3>等級：酒吧高手</h3>
+                            <small> 合作廠商-金門船票一張</small>
+                            <h3>等級：酒吧達人</h3>
+                            <small> 年度酒展門票一張</small>
+                            <h3>等級：酒吧潮人</h3>
+                            <small> 指定店家特色調酒一杯</small>
+                            <div class="special_more-link">
+                                <a href="./forum_award.html">前往兌換福利</a>
+                            </div>
+                        </div>
+                        <div class="body_rank_content">
+                            <h2>【探店達人】</h2>
+                            <p>探訪過的酒吧數量</p>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.1</span>
+                                    <span class="tag-name">信義王陽明</span>
+                                    <span class="tag-num">100家</span>
+                                </a>
+                            </div>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.2</span>
+                                    <span class="tag-name">土城亨利</span>
+                                    <span class="tag-num">85家</span>
+                                </a>
+                            </div>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.3</span>
+                                    <span class="tag-name">古亭波奇</span>
+                                    <span class="tag-num">69家</span>
+                                </a>
+                            </div>
+                            <h2>【聽我的準沒錯】</h2>
+                            <p>被選為精選文章的數量</p>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.1</span>
+                                    <span class="tag-name">景美7文</span>
+                                    <span class="tag-num">50篇</span>
+                                </a>
+                            </div>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.2</span>
+                                    <span class="tag-name">哼哼亨利</span>
+                                    <span class="tag-num">40篇</span>
+                                </a>
+                            </div>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.3</span>
+                                    <span class="tag-name">蓋瑞底家</span>
+                                    <span class="tag-num">30篇</span>
+                                </a>
+                            </div>
+                            <h2>【愛心收割者】</h2>
+                            <p>發表文章所收穫的愛心數量</p>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.1</span>
+                                    <span class="tag-name">哼哼亨利</span>
+                                    <span class="tag-num">999+</span>
+                                </a>
+                            </div>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.2</span>
+                                    <span class="tag-name">古亭波奇</span>
+                                    <span class="tag-num">500+</span>
+                                </a>
+                            </div>
+                            <div class="ranking-item"><a href="./otherMember.html">
+                                    <span class="rank-number">NO.3</span>
+                                    <span class="tag-name">景美7文</span>
+                                    <span class="tag-num">200+</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 標籤 -->
+                <div class="body_tagVdo">
+                    <div class="tagVdo_categories">
+                        <div class="body_hotTag active">熱 門 標 籤</div>
+                        <div class="body_hotVdo">熱 門 影 片</div>
+                    </div>
+                    <div class="tagVdo_content">
+                        <!-- 標籤內容區域 -->
+                        <div class="body_hotTag_content active">
+                            <div class="hotTag-item">
+                                <div class="hotTag-rank">NO.1</div>
+                                <div class="hotTag-name">#酒精路跑</div>
+                                <div class="hotTag-num">
+                                    <img src="./img/forum/@num.png" alt="標籤提及人數">
+                                </div>
+                            </div>
+                            <div class="hotTag-item">
+                                <div class="hotTag-rank">NO.2</div>
+                                <div class="hotTag-name">#醉後的事</div>
+                                <div class="hotTag-num">
+                                    <img src="./img/forum/@num-1.png" alt="標籤提及人數">
+                                </div>
+                            </div>
+                            <div class="hotTag-item">
+                                <div class="hotTag-rank">NO.3</div>
+                                <div class="hotTag-name">#探店心得</div>
+                                <div class="hotTag-num">
+                                    <img src="./img/forum/@num-2.png" alt="標籤提及人數">
+                                </div>
+                            </div>
+                            <div class="hotTag-item">
+                                <div class="hotTag-rank">NO.4</div>
+                                <div class="hotTag-name">#酒超好喝</div>
+                                <div class="hotTag-num">
+                                    <img src="./img/forum/@num-3.png" alt="標籤提及人數">
+                                </div>
+                            </div>
+                            <div class="hotTag-item">
+                                <div class="hotTag-rank">NO.5</div>
+                                <div class="hotTag-name">#調酒師帥</div>
+                                <div class="hotTag-num">
+                                    <img src="./img/forum/@num-4.png" alt="標籤提及人數">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 影片內容區域 -->
+                        <div class="body_hotVdo_content">
+                            <div class="grid">
+                                <div class="video-item">
+                                    <iframe width="280" height="100"
+                                        src="https://www.youtube.com/embed/qH4Cge_ED-4?si=ag5jUerb6mDieJ90"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-item">
+                                    <iframe width="280" height="100"
+                                        src="https://www.youtube.com/embed/W-JKSt5Lg6c?si=uc3VOfm_lLvCCHiH&amp;start=10"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右側欄位 -->
+            <div class="forum-right">
+                <!-- 熱門活動 -->
+                <div class="body_news">
+                    <div class="news_container">
+                        <div class="news_categories">
+                            <div class="news_hotEvt active" data-target="news_content">熱門活動</div>
+                            <div class="news_limitEvt" data-target="limitEvt_content">期間限定</div>
+                            <div class="news_normalEvt" data-target="normalEvt_content">常態活動</div>
+                        </div>
+                        <div class="news_more-link">
+                            <button onclick="window.location.href='./forum_news.html'">前往活動主頁</button>
+                        </div>
+                    </div>
+                    <!-- 熱門活動區域 -->
+                    <ul class="news_content active">
+                        <button class="article_evt">
+                            <li class="news evt-pic2">
+                                <a href="#" class="evt_content">
+                                    <h2>去海邊喝一杯吧! 海岸線酒吧大會集</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="news evt-pic1">
+                                <a href="#" class="evt_content">
+                                    <h2>期間限定! 世界調酒冠軍的得獎之作</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="news evt-pic10">
+                                <a href="#" class="evt_content">
+                                    <h2>單身之夜，與調酒碰撞愛火</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="news evt-pic4">
+                                <a href="#" class="evt_content">
+                                    <h2>在山林中迎接晨曦，品味特色精釀啤酒</h2>
+                                </a>
+                            </li>
+                        </button>
+                    </ul>
+                    <!-- 期間限定區域 -->
+                    <ul class="limitEvt_content">
+                        <button class="article_evt">
+                            <li class="limitEvt evt-pic5">
+                                <a href="#" class="evt_content">
+                                    <h2>星空下的微醺之夜—戶外調酒露營派對</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="limitEvt evt-pic9">
+                                <a href="#" class="evt_content">
+                                    <h2>揭開神秘面具之下，調酒狂歡之夜！</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="limitEvt evt-pic6">
+                                <a href="#" class="evt_content">
+                                    <h2>舊時光新風味—復古雞尾酒夜市派對</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="limitEvt evt-pic7">
+                                <a href="#" class="evt_content">
+                                    <h2>花海與香氛的約會—花田間的香味調酒節</h2>
+                                </a>
+                            </li>
+                        </button>
+                    </ul>
+                    <!-- 常態活動區域 -->
+                    <ul class="normalEvt_content">
+                        <button class="article_evt">
+                            <li class="normalEvt evt-pic3">
+                                <a href="#" class="evt_content">
+                                    <h2>與世隔離，享受無際大海與美酒的時光</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="normalEvt evt-pic8">
+                                <a href="#" class="evt_content">
+                                    <h2>在巷弄間，展開酒吧探險之旅</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="normalEvt evt-pic1">
+                                <a href="#" class="evt_content">
+                                    <h2>期間限定! 世界調酒冠軍的得獎之作</h2>
+                                </a>
+                            </li>
+                        </button>
+                        <button class="article_evt">
+                            <li class="normalEvt evt-pic10">
+                                <a href="#" class="evt_content">
+                                    <h2>單身之夜，與調酒碰撞愛火</h2>
+                                </a>
+                            </li>
+                        </button>
+                    </ul>
+
+                </div>
+                <!-- 熱門文章 -->
+                <div class="body_atc">
+                    <div class="atc_container">
+                        <div class="atc_categories">
+                            <div class="atc_hotAtc" data-target="hotAtc_content">熱門文章</div>
+                            <div class="atc_niceAtc" data-target="niceAtc_content">精選文章</div>
+                            <div class="atc_normalAtc" data-target="normalAtc_content">一般文章</div>
+                        </div>
+                        <div class="atc_more-link">
+                            <button onclick="window.location.href='./forum_account.html'">前往文章主頁</button>
+                        </div>
+                    </div>
+                    <!-- 熱門文章區域 -->
+                    <div class="hotAtc_content">
+                        <div class="hotAtc-row1">
+                            <li class="hotAtc_inner">
+                                <a href="#" class="inner-pic1 article" data-target="content-1"></a>
+                            </li>
+                            <li class="hotAtc_inner">
+                                <a href="#" class="inner-pic2 article" data-target="content-1"></a>
+                            </li>
+                            <li class="hotAtc_inner">
+                                <a href="#" class="inner-pic3 article" data-target="content-1"></a>
+                            </li>
+                            <li class="hotAtc_inner">
+                                <a href="#" class="inner-pic4 article" data-target="content-1"></a>
+                            </li>
+                        </div>
+                        <div class="hotAtc-row2">
+                            <li class="hotAtc_inner">
+                                <a href="#" class="inner-pic5 article" data-target="content-1"></a>
+                            </li>
+                            <li class="hotAtc_inner">
+                                <a href="#" class="inner-pic6 article" data-target="content-1"></a>
+                            </li>
+                            <li class="hotAtc_inner">
+                                <a href="#" class="inner-pic7 article" data-target="content-1"></a>
+                            </li>
+                            <li class="hotAtc_inner">
+                                <a href="#" class="inner-pic8 article" data-target="content-1"></a>
+                            </li>
+                        </div>
+                    </div>
+                    <!-- 精選文章區域 -->
+                    <div class="niceAtc_content">
+                        <div class="niceAtc-row1">
+                            <li class="niceAtc_inner">
+                                <a href="#" class="inner-pic8 article" data-target="content-1"></a>
+                            </li>
+                            <li class="niceAtc_inner">
+                                <a href="#" class="inner-pic7 article" data-target="content-1"></a>
+                            </li>
+                            <li class="niceAtc_inner">
+                                <a href="#" class="inner-pic6 article" data-target="content-1"></a>
+                            </li>
+                            <li class="niceAtc_inner">
+                                <a href="#" class="inner-pic5 article" data-target="content-1"></a>
+                            </li>
+                        </div>
+                        <div class="niceAtc-row2">
+                            <li class="niceAtc_inner">
+                                <a href="#" class="inner-pic4 article" data-target="content-1"></a>
+                            </li>
+                            <li class="niceAtc_inner">
+                                <a href="#" class="inner-pic3 article" data-target="content-1"></a>
+                            </li>
+                            <li class="niceAtc_inner">
+                                <a href="#" class="inner-pic2 article" data-target="content-1"></a>
+                            </li>
+                            <li class="niceAtc_inner">
+                                <a href="#" class="inner-pic1 article" data-target="content-1"></a>
+                            </li>
+                        </div>
+                    </div>
+                    <!-- 一般文章區域 -->
+                    <div class="normalAtc_content">
+                        <div class="normalAtc-row1">
+                            <li class="normalAtc_inner">
+                                <a href="#" class="inner-pic2"></a>
+                            </li>
+                            <li class="normalAtc_inner">
+                                <a href="#" class="inner-pic1"></a>
+                            </li>
+                            <li class="normalAtc_inner">
+                                <a href="#" class="inner-pic4"></a>
+                            </li>
+                            <li class="normalAtc_inner">
+                                <a href="#" class="inner-pic3"></a>
+                            </li>
+                        </div>
+                        <div class="normalAtc-row2">
+                            <li class="normalAtc_inner">
+                                <a href="#" class="inner-pic6"></a>
+                            </li>
+                            <li class="normalAtc_inner">
+                                <a href="#" class="inner-pic5"></a>
+                            </li>
+                            <li class="normalAtc_inner">
+                                <a href="#" class="inner-pic8"></a>
+                            </li>
+                            <li class="normalAtc_inner">
+                                <a href="#" class="inner-pic7"></a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <!-- 教學文主頁 -->
+                <div class="body_teach">
+                    <div class="teach_container">
+                        <div class="teach_categories">
+                            <div class="teach_baseWine active" data-target="baseWine_content">六大基酒</div>
+                            <div class="teach_bartendWine" data-target="bartendWine_content">經典調酒</div>
+                            <div class="teach_teachWine" data-target="teachWine_content">調酒教學</div>
+                        </div>
+                        <div class="teachs_more-link">
+                            <button onclick="window.location.href='./forum_teach.html'">前往教學主頁</button>
+                        </div>
+                    </div>
+                    <!-- 六大基酒區域 -->
+                    <ul class="baseWine_content active">
+                        <li class="baseWinePic1" data-large="./img/forum/teach/base-vodka.png">
+                            <a href="./forum_content/forum_teach.html" class="content-tea"></a>
+                        </li>
+                        <li class="baseWinePic2" data-large="./img/forum/teach/base-whisky.png">
+                            <a href="./forum_content/forum_teach.html" class="content-tea"></a>
+                        </li>
+                        <li class="baseWinePic3" data-large="./img/forum/teach/base-gin.png">
+                            <a href="./forum_content/forum_teach.html" class="content-tea"></a>
+                        </li>
+                        <li class="baseWinePic4" data-large="./img/forum/teach/base-rum.png">
+                            <a href="./forum_content/forum_teach.html" class="content-tea"></a>
+                        </li>
+
+                    </ul>
+                    <!-- 經典調酒區域 -->
+                    <ul class="bartendWine_content">
+                        <li class="bartendWinePic1" data-large="./img/forum/teach/oldfashion.png">
+                            <a href="./forum_content/forum_teach.html" class="content-tea"></a>
+                        </li>
+                        <li class="bartendWinePic2" data-large="./img/forum/teach/lonisland.png">
+                            <a href="./forum_content/forum_teach.html" class="content-tea"></a>
+                        </li>
+                        <li class="bartendWinePic3" data-large="./img/forum/teach/sidecar.png">
+                            <a href="./forum_content/forum_teach.html" class="content-tea"></a>
+                        </li>
+                        <li class="bartendWinePic4" data-large="./img/forum/teach/margarita.png">
+                            <a href="./forum_content/forum_teach.html" class="content-tea"></a>
+                        </li>
+                    </ul>
+                    <!-- 調酒教學區域 -->
+                    <ul class="teachWine_content ">
+                        <li class="teachWinePic1">
+                            <a href="#" class="content-tea">
+                                <div class="video-item">
+                                    <iframe width="390" height="250"
+                                        src="https://www.youtube.com/embed/qH4Cge_ED-4?si=ag5jUerb6mDieJ90"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="teachWinePic2">
+                            <a href="#" class="content-tea">
+                                <div class="video-item">
+                                    <iframe width="390" height="250"
+                                        src="https://www.youtube.com/embed/W-JKSt5Lg6c?si=uc3VOfm_lLvCCHiH&amp;start=10"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文章彈出頁 -->
+        <div id="post"></div>
+        <script type="text/babel">
+            function App() {
+
+                const article = [
+                    {
+                        id: 1, //跑迴圈時 需要一個資料不會重複的key值
+                        target: '1',
+                        user_img: './img/forum/account/user/user6.jpg',
+                        user_name: '土城亨利',
+                        post_time: '9月20號 20:00',
+                        art_title: '我在信義Fake Sober',
+                        hashtag1: '#探店心得',
+                        hashtag2: '#酒超好喝',
+                        hashtag3: '#酒吧推薦',
+                        art_content: '我現在人在信義fake sober，打算成為兩性中的King！目標是要和100個女生展開對話，目前進度是0，但這只是個開始。別擔心，我是那種不會讓你失望的男人。問什麼問題都可以，這裡不會叫你去估狗，直接來找我就對了。讓我成為你們的答案庫，讓你們的夜晚充滿笑聲和驚喜。每個人都有機會，我也有我的計畫和策略，要和這100個女生逐一展開精彩對話。來吧，大家，一起玩這個有趣的遊戲！今晚，讓我們把這裡變成我們的舞台！',
+                        heart_num: '987',
+                        comment_num: '87',
+                        bookMark_num: '98',
+                        time: '2024-09-20T20:22:00',
+                        time2: '2024-09-20T20:30:00',
+                        user_url: './img/forum/account/user/user6.jpg',
+                        user_url2: './img/forum/account/user/user2.jpg',
+                        userName: '信義878',
+                        userName2: '哈哈',
+                        user_time: '9月20日 20:22',
+                        user_time2: '9月20日 20:30',
+                        floor: 'B1',
+                        floor2: 'B2',
+                        content: '泰酷辣!!!',
+                        content2: '說啥呢這哥',
+                        heart_cmt: 150,
+                        heart_cmt2: 60,
+                        comment_cmt: 1,
+                        comment_cmt2: 6
+                    }
+                ]
+
+                React.useEffect(() => {
+                    post();
+                }, []);
+
+                return (
+                    <>
+                        {
+                            article.slice(0, 1).map((item) => {
+                                return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title} hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} time={item.time} time2={item.time2} user_url={item.user_url} user_url2={item.user_url2} userName={item.userName} userName2={item.userName2} user_time={item.user_time} user_time2={item.user_time2} floor={item.floor} floor2={item.floor2} content={item.content} content2={item.content2} heart_cmt={item.heart_cmt} heart_cmt2={item.heart_cmt2} comment_cmt={item.comment_cmt} comment_cmt2={item.comment_cmt2} />
+                            })
+                        }
+
+                    </ >
+                )
+            }
+            ReactDOM
+                .createRoot(document.getElementById('post'))
+                .render(<App />)
+        </script>
+
+    </main>
+    <div id="root"></div>
+    <script type="text/babel">
+        function App() {
+
+            React.useEffect(() => {
+                activity_windowout();
+            }, []);
+
+            return (
+                <Activity />
+            )
+        }
+
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />)
+    </script>
+
+
+    <div id="helper"></div>
+    <script type="text/babel">
+        function App() {
+
+            React.useEffect(() => {
+                helper();
+            }, []); // 空依賴陣列表示只在組件掛載和卸載時執行
+
+            return (
+                <Helper />
+            )
+        }
+        ReactDOM
+            .createRoot(document.getElementById('helper'))
+            .render(<App />)
+    </script>
+    <div id="footer"></div>
+    <script type="text/babel">
+        function App() {
+            return (
+                <Footer />
+            )
+        }
+        ReactDOM
+            .createRoot(document.getElementById('footer'))
+            .render(<App />)
+    </script>
+    <script src="./helper_element/helper.js"></script>
+    <script src="./Header_element/login.js"></script>
+    <script src="./Activity_element/Activity.js"></script>
+    <script src="./Post_element/Post.js"></script>
+    <script src="./js/forum-script.js"></script>
+</body>
+
+</html>

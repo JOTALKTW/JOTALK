@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOTALK – 首頁</title>
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./css/home_mouse.css">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script type="text/babel" src="./Footer_element/Footer.jsx"></script>
+    <link rel="stylesheet" href="./Footer_element/Footer.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <!--loading動畫  -->
+    <!-- <div id="loading-screen">
+        <img src="./img/loading.gif" alt="" loop="infinite">
+    </div> -->
+
+    <header>
+        <div id="topbar">
+            <!-- logo區 -->
+            <h1 class="logo">
+                <a href="./index.html">
+                    <img src="./img/logo.svg" alt="jotalkLogo">
+                </a>
+            </h1>
+            <div class="menu">
+                <a href="./forum.html">綜合論壇</a>
+                <a href="./barlist.html">酒吧清單</a>
+                <a href="./otherMember.html">會員頁面</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <video autoplay loop muted>
+                <source src="./img/index/home_bg.mp4" type="video/mp4">
+            </video>
+            <div class="text">
+                <h1>JOTALK</h1>
+                <h2>你的酒吧指南，帶你體驗品味與放鬆</h2>
+            </div>
+            <div class="scroll-downs">
+                <div class="mousey">
+                    <div class="scroller"></div>
+                </div>
+            </div>
+        </section>
+        <div class="background">
+            <section id="cutScene">
+                <div class="content">
+                    <div class="txt-1 smoove" data-move-z="-50px">我們相信每一次的酒吧之旅，都應該是一次美好的體驗</div>
+                    <div class="msgCol">
+                        <ul class="msg-1 smoove" data-move-z="-100px">今天晚上要不要喝一杯?</ul>
+                        <ul class="msg-2 smoove" data-move-x="-220px" data-move-y="10px" data-move-z="-100px">發薪水啦
+                            開喝&#129321</ul>
+                        <ul class="msg-3 smoove" data-move-x="120px" data-move-y="30px" data-move-z="-50px">Friday
+                            night 一個都不準跑</ul>
+                        <ul class="msg-4 smoove" data-move-x="-100px" data-move-y="10px" data-move-z="-50px">+1</ul>
+                        <ul class="msg-5 smoove" data-move-x="150px" data-move-y="50px" data-move-z="-50px">我有個驚天大八卦
+                            老地方碰面&#128536</ul>
+                        <ul class="msg-6 smoove" data-move-x="-250px" data-move-y="100px" data-move-z="-50px">
+                            我失戀了求安慰&#128557</ul>
+                        <ul class="msg-7 smoove" data-move-x="150px" data-move-y="100px" data-move-z="-50px">走啦走啦約起來
+                        </ul>
+                        <ul class="msg-8 smoove" data-move-x="-50px" data-move-y="100px" data-move-z="-50px">不醉不歸
+                            &#129304</ul>
+                        <ul class="msg-9 smoove" data-move-y="400px" data-move-z="-150px">那個...要去哪一間酒吧?</ul>
+                    </div>
+                    <div class="txt-2 smoove">在這裡，你可以探索最適合自己的酒吧，還能分享心得、累積積分、兌換優惠，享受更多福利</div>
+                </div>
+            </section>
+            <section id="forum">
+                <div class="title">
+                    <div id="text">
+                        <h2>FORUM</h2>
+                        <h3>你的酒吧交流社區</h3>
+                        <a class="btn" href="./forum.html">立即前往</a>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="column column-left">
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc1.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc2.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc3.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc4.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc5.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc6.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc7.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc8.png" draggable="false"></div>
+                    </div>
+                    <div class="column column-right">
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc8.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc7.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc6.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc5.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc4.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc3.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc2.png" draggable="false"></div>
+                        <div class="card"><img src="./img/forum/forum_right_pic/atc1.png" draggable="false"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section id="barlist">
+            <div class="slideshow">
+                <div class="slide" data-bar="Ludwig-Milotic"><img src="./img/index/index-3-1.jpg" draggable="false"></div>
+                <div class="slide" data-bar="Oask-Wine Bucket"><img src="./img/index/index-3-2.jpg" draggable="false"></div>
+                <div class="slide" data-bar="Blastoise-Middle Two"><img src="./img/index/index-3-3.jpg" draggable="false"></div>
+                <div class="slide" data-bar="River Night-Britain"><img src="./img/index/index-3-4.jpg" draggable="false"></div>
+                <div class="slide" data-bar="Darwin-Night Fall"><img src="./img/index/index-3-5.jpg" draggable="false"></div>
+            </div>
+            <div class="bar-names">
+                <div class="bar-name-left"></div>
+                <div class="bar-name-right"></div>
+            </div>
+            <div class="center-text">
+                <h2>BAR LIST</h2>
+                <p>選出你心中的那間酒吧</p>
+                <button class="toBarList" onclick="location.href='barlist.html'">立即前往</button>
+            </div>
+        </section>
+        <section id="last">
+            <div class="content">
+                <p class="txt-3 smoove" data-move-z="-50px">無論是尋找放鬆的地方，或是獲取更多酒吧資訊，JOTALK都能隨時為你服務</p>
+                <p class="txt-4 smoove" data-move-z="-50px">探索酒吧的最佳夥伴，與我們一起享受每一刻！</p>
+                <a class="joinBtn" href="./otherMember.html">加入會員 開始體驗</a>
+            </div>
+            <div class="index-4-feedBack">
+                <div class="marquee-container">
+                    <div class="marquee-content">
+                        　USER FEEDBACK　USER FEEDBACK　USER FEEDBACK　USER FEEDBACK　USER FEEDBACK　USER FEEDBACK
+                    </div>
+                </div>
+                <div class="feedback-cards-container">
+                    <div class="feedback-cards">
+                        <div class="feedback-card"><img src="./img/index/feedback-1.png" draggable="false"></div>
+                        <div class="feedback-card"><img src="./img/index/feedback-2.png" draggable="false"></div>
+                        <div class="feedback-card"><img src="./img/index/feedback-3.png" draggable="false"></div>
+                        <div class="feedback-card"><img src="./img/index/feedback-4.png" draggable="false"></div>
+                        <div class="feedback-card"><img src="./img/index/feedback-5.png" draggable="false"></div>
+                        <div class="feedback-card"><img src="./img/index/feedback-8.png" draggable="false"></div>
+                        <div class="feedback-card"><img src="./img/index/feedback-7.png" draggable="false"></div>
+                        <div class="feedback-card"><img src="./img/index/feedback-6.png" draggable="false"></div>
+                        <div class="feedback-card"><img src="./img/index/feedback-9.png" draggable="false"></div>
+                    </div>
+                </div>
+                <div class="marquee-container">
+                    <div class="marquee-content">
+                        　USER FEEDBACK　USER FEEDBACK　USER FEEDBACK　USER FEEDBACK　USER FEEDBACK　USER FEEDBACK
+                    </div>
+                </div>
+            </div>
+            <video src="./img/index/index-4.mp4" autoplay loop muted></video>
+        </section>
+    </main>
+
+    <div id="root"></div>
+    <script type="text/babel">
+        function App() {
+            return (
+                <Footer />
+            )
+        }
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />)
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

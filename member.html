@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOTALK – 我的會員</title>
+    <link rel="icon" href="./favicon.ico">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" src="./Footer_element/Footer.jsx"></script>
+    <link rel="stylesheet" href="./Footer_element/Footer.css">
+
+    <script type="text/babel" src="./Header_element/Header.jsx"></script>
+    <link rel="stylesheet" href="./Header_element/Header.css">
+    <!-- 文章彈出元件 -->
+    <script type="text/babel" src="./Post_element/Post.jsx"></script>
+    <link rel="stylesheet" href="./Post_element/Post.css">
+
+    <!-- 活動彈出元件 -->
+    <script type="text/babel" src="./Activity_element/Activity.jsx"></script>
+    <link rel="stylesheet" href="./Activity_element/Activity.css">
+
+    <link rel="stylesheet" href="./css/member.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <script type="text/babel">
+        function App() {
+
+            React.useEffect(() => {
+                login();
+            }, []);
+
+            return (
+                <Header h1='MEMBER' p='我的會員' bg='./img/member/member-head-pic.jpg' leftSlogan={true} slogan='' btn={true} />
+            )
+        }
+        ReactDOM
+            .createRoot(document.getElementById('header'))
+            .render(<App />)
+    </script>
+
+
+    <!-- 文章彈出頁 -->
+    <div id="post"></div>
+    <script type="text/babel">
+        function App() {
+
+            const article = [
+                {
+                    id: 1, //跑迴圈時 需要一個資料不會重複的key值
+                    target: '1',
+                    user_img: './img/forum/account/user/user6.jpg',
+                    user_name: '土城亨利',
+                    post_time: '9月20號 20:00',
+                    art_title: '我在信義Fake Sober',
+                    hashtag1: '#探店心得',
+                    hashtag2: '#酒超好喝',
+                    hashtag3: '#酒吧推薦',
+                    art_content: '我現在人在信義fake sober，打算成為兩性中的King！目標是要和100個女生展開對話，目前進度是0，但這只是個開始。別擔心，我是那種不會讓你失望的男人。問什麼問題都可以，這裡不會叫你去估狗，直接來找我就對了。讓我成為你們的答案庫，讓你們的夜晚充滿笑聲和驚喜。每個人都有機會，我也有我的計畫和策略，要和這100個女生逐一展開精彩對話。來吧，大家，一起玩這個有趣的遊戲！今晚，讓我們把這裡變成我們的舞台！',
+                    heart_num: '987',
+                    comment_num: '87',
+                    bookMark_num: '98',
+                    time: '2024-09-20T20:22:00',
+                    time2: '2024-09-20T20:30:00',
+                    user_url: './img/forum/account/user/user6.jpg',
+                    user_url2: './img/forum/account/user/user2.jpg',
+                    userName: '信義878',
+                    userName2: '哈哈',
+                    user_time: '9月20日 20:22',
+                    user_time2: '9月20日 20:30',
+                    floor: 'B1',
+                    floor2: 'B2',
+                    content: '泰酷辣!!!',
+                    content2: '說啥呢這哥',
+                    heart_cmt: 150,
+                    heart_cmt2: 60,
+                    comment_cmt: 1,
+                    comment_cmt2: 6
+                },
+                {
+                    id: 2, //跑迴圈時 需要一個資料不會重複的key值
+                    target: '2',
+                    user_img: './img/forum/account/user/user2.jpg',
+                    user_name: '鶯歌鯉魚王',
+                    post_time: '9月18號 20:00',
+                    art_title: '9月酒吧評選',
+                    hashtag1: '#探店心得',
+                    hashtag2: '#酒超好喝',
+                    hashtag3: '#酒吧推薦',
+                    art_content: '我信義酒吧評選 1.sleep no more 2.fake sober 3.draft land 4.台虎 5.barcode',
+                    heart_num: '687',
+                    comment_num: '87',
+                    bookMark_num: '98',
+                    time: '2024-09-20T20:22:00',
+                    time2: '2024-09-20T20:30:00',
+                    user_url: './img/forum/account/user/user6.jpg',
+                    user_url2: './img/forum/account/user/user3.jpg',
+                    userName: '信義878',
+                    userName2: '哈哈',
+                    user_time: '9月20日 20:22',
+                    user_time2: '9月20日 20:30',
+                    floor: 'B1',
+                    floor2: 'B2',
+                    content: 'barcode推一個!!!',
+                    content2: 'fakesober絕對是最頂的把..',
+                    heart_cmt: 150,
+                    heart_cmt2: 60,
+                    comment_cmt: 1,
+                    comment_cmt2: 6
+                }
+            ]
+
+            React.useEffect(() => {
+                post();
+            }, []);
+
+            React.useEffect(() => {
+                activity_windowout();
+            }, []);
+
+            return (
+                <>
+                    {
+                        article.slice(0, 1).map((item) => {
+                            return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title} hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} time={item.time} time2={item.time2} user_url={item.user_url} user_url2={item.user_url2} userName={item.userName} userName2={item.userName2} user_time={item.user_time} user_time2={item.user_time2} floor={item.floor} floor2={item.floor2} content={item.content} content2={item.content2} heart_cmt={item.heart_cmt} heart_cmt2={item.heart_cmt2} comment_cmt={item.comment_cmt} comment_cmt2={item.comment_cmt2} />
+                        })
+                    }
+
+
+                    {
+                        article.slice(1, 2).map((item) => {
+                            return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title} hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} time={item.time} time2={item.time2} user_url={item.user_url} user_url2={item.user_url2} userName={item.userName} userName2={item.userName2} user_time={item.user_time} user_time2={item.user_time2} floor={item.floor} floor2={item.floor2} content={item.content} content2={item.content2} heart_cmt={item.heart_cmt} heart_cmt2={item.heart_cmt2} comment_cmt={item.comment_cmt} comment_cmt2={item.comment_cmt2} />
+                        })
+                    }
+                    <Activity />
+                </ >
+            )
+        }
+        ReactDOM
+            .createRoot(document.getElementById('post'))
+            .render(<App />)
+    </script>
+
+
+
+    <main>
+        <img class="member-bg" src="./img/bg-tree.jpg">
+        <div id="member-content">
+            <div id="member-left">
+                <ul class="userIfm">
+                    <img src="./img/member/user-pic.png" alt="會員頭像" draggable="false">
+                    <li class="userID">土城亨利</li>
+                    <li class="userLevel">會員等級：酒吧新手</li>
+                    <li class="userPostFollower">23篇文章　56人追蹤</li>
+                </ul>
+                <div class="nav-btn">
+                    <ul class="nav-goal category" data-target="mb-goal"><a href="">我的積分</a></ul>
+                    <ul class="nav-article category" data-target="mb-article"><a href="">我的文章</a></ul>
+                    <ul class="nav-collect category" data-target="mb-collect"><a href="">我的收藏</a></ul>
+                    <ul class="nav-article category" data-target="mb-visited"><a href="">我的探店</a></ul>
+                    <ul class="nav-setting category" data-target="mb-setting"><a href="">我的設定</a></ul>
+                </div>
+            </div>
+            <div id="member-right">
+                <div id="mb-goal">
+                    <div id="member-rank">
+                        <img src="./img/member/member-rank.png" alt="會員目前等級" draggable="false">
+                        <a class="toAward" href="./forum_award.html">前往兌換優惠</a>
+                    </div>
+                    <div id="points">
+                        <div class="history-store">
+                            <h2>探店紀錄</h2>
+                            <div class="points_history">
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 9月</span>
+                                        <span class="toggle-btn">–</span>
+                                    </div>
+                                    <div class="record-content this">
+                                        <div class="record-date">
+                                            <a href="./barlist.html">
+                                                <p>Milotic</p>
+                                            </a>
+                                            <p>9/8</p>
+                                        </div>
+                                        <div class="record-date">
+                                            <a href="./barlist.html">
+                                                <p>Nightfall Nook</p>
+                                            </a>
+                                            <p>9/7</p>
+                                        </div>
+                                        <div class="record-date">
+                                            <a href="./barlist.html">
+                                                <p>濁流</p>
+                                            </a>
+                                            <p>9/1</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 8月</span>
+                                        <span class="toggle-btn">+</span>
+                                    </div>
+                                    <div class="record-content">
+                                        <div class="record-date">
+                                            <p>Darwin</p>
+                                            <p>8/28</p>
+                                        </div>
+                                        <div class="record-date">
+                                            <p>二鹿</p>
+                                            <p>8/25</p>
+                                        </div>
+                                        <div class="record-date">
+                                            <p>Wine Bucket</p>
+                                            <p>8/25</p>
+                                        </div>
+                                        <div class="record-date">
+                                            <p>Sun Walk</p>
+                                            <p>8/17</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 7月</span>
+                                        <span class="toggle-btn">+</span>
+                                    </div>
+                                    <div class="record-content">
+                                        <div class="record-date">
+                                            <p>Takao</p>
+                                            <p>7/28</p>
+                                        </div>
+                                        <div class="record-date">
+                                            <p>Nightfall Nook</p>
+                                            <p>7/20</p>
+                                        </div>
+                                        <div class="record-date">
+                                            <p>Darwin</p>
+                                            <p>7/14</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-evt">
+                            <h2>活動紀錄</h2>
+                            <div class="points_history">
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 9月</span>
+                                        <span class="toggle-btn">–</span>
+                                    </div>
+                                    <div class="record-content this">
+                                        <div class="record-date article_evt">
+                                            <p>單身之夜，與調酒碰撞愛火</p>
+                                        </div>
+                                        <div class="record-date article_evt">
+                                            <p>在巷弄間，展開酒吧探險之旅</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 8月</span>
+                                        <span class="toggle-btn">+</span>
+                                    </div>
+                                    <div class="record-content">
+                                        <div class="record-date article_evt">
+                                            <p>星空下的微醺之夜—戶外調酒露營派對</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 7月</span>
+                                        <span class="toggle-btn">+</span>
+                                    </div>
+                                    <div class="record-content">
+                                        <div class="record-date article_evt">
+                                            <!-- <a href="./forum.html"> -->
+                                            <p>期間限定! 世界調酒冠軍的得獎之作。</p>
+                                            <!-- </a> -->
+                                        </div>
+                                        <div class="record-date article_evt">
+                                            <p>花海與香氛的約會—花田間的香味調酒節</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-like">
+                            <h2>愛心收割</h2>
+                            <div class="points_history">
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 9月</span>
+                                        <span class="toggle-btn">–</span>
+                                    </div>
+                                    <div class="record-content this">
+                                        <div class="record-date article" data-target="content-2">
+                                            <p>一個人去酒吧是為了什麼？</p>
+                                            <div class="like-num">🤍 888</div>
+                                        </div>
+                                        <div class="record-date article" data-target="content-1">
+                                            <p>我在信義Fake　sober</p>
+                                            <div class="like-num">🤍 520</div>
+                                        </div>
+                                        <div class="record-date article" data-target="content-2">
+                                            <p>9月酒吧評選</p>
+                                            <div class="like-num">🤍 111</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 8月</span>
+                                        <span class="toggle-btn">+</span>
+                                    </div>
+                                    <div class="record-content">
+                                        <div class="record-date article" data-target="content-1">
+                                            <p>調酒露營派對超讚!!!</p>
+                                            <div class="like-num">🤍 777</div>
+                                        </div>
+                                        <div class="record-date article" data-target="content-2">
+                                            <p>東區酒吧互毆事件</p>
+                                            <div class="like-num">🤍 666</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="store_month">
+                                    <div class="record-header">
+                                        <span>2024年 7月</span>
+                                        <span class="toggle-btn">+</span>
+                                    </div>
+                                    <div class="record-content">
+                                        <div class="record-date article" data-target="content-1">
+                                            <p>世界調酒冠軍的調酒有點東西</p>
+                                            <div class="like-num">🤍 654</div>
+                                        </div>
+                                        <div class="record-date article" data-target="content-2">
+                                            <p>跟網友第一次見面約哪間酒吧比較推薦</p>
+                                            <div class="like-num">🤍 888</div>
+                                        </div>
+                                        <div class="record-date article" data-target="content-1">
+                                            <p>花香調酒節滿分100分</p>
+                                            <div class="like-num">🤍 100</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="point-history">
+                        <h2>積分歷史紀錄</h2>
+                        <div class="allHistory">
+                            <div class="store_month">
+                                <div class="record-header">
+                                    <span>2024年 9月</span>
+                                    <span class="toggle-btn">–</span>
+                                </div>
+                                <div class="record-content this">
+                                    <div class="record-date">
+                                        <p>9/25</p>
+                                        <div class="title">【愛心】9月酒吧評選 - 愛心數突破500</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>9/21</p>
+                                        <div class="title">【活動】單身之夜，與調酒碰撞愛火</div>
+                                        <div class="plus-point">+ 20分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>9/16</p>
+                                        <div class="title">【愛心】幫我找這位帥哥是誰 - 愛心數突破500</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>9/13</p>
+                                        <div class="title">【活動】在巷弄間，展開酒吧探險之旅</div>
+                                        <div class="plus-point">+ 20分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>9/8</p>
+                                        <div class="title">【探店】Milotic</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>9/7</p>
+                                        <div class="title">【探店】Nightfall Nook</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>9/1</p>
+                                        <div class="title">【探店】濁流</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="store_month">
+                                <div class="record-header">
+                                    <span>2024年 8月</span>
+                                    <span class="toggle-btn">+</span>
+                                </div>
+                                <div class="record-content">
+                                    <div class="record-date">
+                                        <p>8/28</p>
+                                        <div class="title">【探店】Darwin</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>8/25</p>
+                                        <div class="title">【探店】二鹿</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>8/25</p>
+                                        <div class="title">【探店】Wine Bucket</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>8/19</p>
+                                        <div class="title">【愛心】調酒露營派對超讚!!! - 愛心數突破500</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>8/17</p>
+                                        <div class="title">【探店】Sun Walk</div>
+                                        <div class="plus-point" p>+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>8/10</p>
+                                        <div class="title">【活動】星空下的微醺之夜—戶外調酒露營派對</div>
+                                        <div class="plus-point">+ 20分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>8/5</p>
+                                        <div class="title">【愛心】東區酒吧互毆事件 - 愛心數突破500</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="store_month">
+                                <div class="record-header">
+                                    <span>2024年 7月</span>
+                                    <span class="toggle-btn">+</span>
+                                </div>
+                                <div class="record-content">
+                                    <div class="record-date">
+                                        <p>7/28</p>
+                                        <div class="title">【探店】Takao</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>7/24</p>
+                                        <div class="title">【愛心】世界調酒冠軍的調酒有點東西 - 愛心數突破500</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>7/21</p>
+                                        <div class="title">【活動】期間限定! 世界調酒冠軍的得獎之作。</div>
+                                        <div class="plus-point">+ 20分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>7/20</p>
+                                        <div class="title">【探店】Nightfall Nook</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>7/17</p>
+                                        <div class="title">【愛心】跟網友第一次見面約哪間酒吧比較推薦 - 愛心數突破500</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>7/14</p>
+                                        <div class="title">【探店】Darwin</div>
+                                        <div class="plus-point">+ 10分</div>
+                                    </div>
+                                    <div class="record-date">
+                                        <p>7/7</p>
+                                        <div class="title">【活動】花海與香氛的約會—花田間的香味調酒節</div>
+                                        <div class="plus-point">+ 20分</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="mb-article">
+                    <img class="article" data-target="content-1" src="./img/member/otherMember/forum-1.png" draggable="false">
+                    <img class="article" data-target="content-2" src="./img/member/otherMember/forum-4.png" draggable="false">
+                    <img class="article" data-target="content-1" src="./img/member/otherMember/forum-5.png" draggable="false">
+                </div>
+                <div id="mb-collect">
+                    <div class="nav-mbCollect">
+                        <ul class="collect"><a href="" class="nav-mb-bar" data-target="collect-bar">酒吧收藏</a>
+                        </ul>
+                        <ul class="collect"><a href="" class="nav-mb-article"
+                                data-target="collect-article">文章收藏</a></ul>
+                        <ul class="collect"><a href="" class="nav-mb-member"
+                                data-target="collect-member">酒友收藏</a></ul>
+                    </div>
+                    <div class="collect-bar">
+                        <img src="./img/member/bar/collect-bar-1.png" draggable="false">
+                    </div>
+                    <!-- 文章元件 -->
+                    <div class="collect-article">
+                        <img class="article" data-target="content-1" src="./img/member/otherMember/forum-1.png"
+                            draggable="false">
+                        <img class="article" data-target="content-2" src="./img/member/otherMember/forum-2.png"
+                            draggable="false">
+                        <img class="article" data-target="content-1" src="./img/member/otherMember/forum-3.png"
+                            draggable="false">
+                    </div>
+                    <div class="collect-member">
+                        <img src="./img/member/member-collect.png" draggable="false">
+                    </div>
+                </div>
+                <div id="mb-visited">
+                    <div class="visited-bar">
+                        <img src="./img/member/bar/collect-bar-1.png" draggable="false">
+                    </div>
+                </div>
+                <div id="mb-setting">
+                    <img src="./img/member/setting.png" draggable="false">
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer"></div>
+    <script type="text/babel">
+        function App() {
+            return (
+                <Footer />
+            )
+        }
+        ReactDOM
+            .createRoot(document.getElementById('footer'))
+            .render(<App />)
+    </script>
+
+    <script src="./Header_element/login.js"></script>
+    <script src="./Post_element/Post.js"></script>
+    <script src="./Activity_element/Activity.js"></script>
+    <script src="./js/member.js"></script>
+</body>
+
+</html>

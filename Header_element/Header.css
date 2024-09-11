@@ -1,0 +1,542 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&family=Noto+Sans+TC:wght@100..900&display=swap');
+/* utf8一定要在行數1 */
+/* import 一定要在第二行 */
+/* 重置所有標籤的樣式 */
+
+/* 顏色設定(設定變數) */
+:root {
+    /* 灰階 */
+    --black: #000000;
+    --darkgrey: rgb(44, 44, 44);
+    --lightgrey: rgb(88, 88, 88);
+    --white: #ffffff;
+
+    /* 主色 */
+    --primary: #155569;
+
+    /* 透明 */
+    --alpha-w-40: rgba(255, 255, 255, .4);
+    --alpha-w-60: rgba(255, 255, 255, .6);
+    --alpha-w-80: rgba(255, 255, 255, .8);
+    --alpha-b-20: rgba(0, 0, 0, .2);
+    --alpha-b-40: rgba(0, 0, 0, 0.4);
+    --alpha-b-70: rgba(0, 0, 0, 0.7);
+    --alpha-lg-10: rgba(88, 88, 88, 0.1);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 不累加padding */
+}
+
+/* 重置字體 */
+body {
+    font-family:
+        /*西文*/
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        /*中文*/
+        "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 重置圖片 */
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 重置連接 */
+a {
+    color: #444;
+    display: block;
+    text-decoration: none;
+}
+
+/* 玻璃擬態 */
+#header_el .topbar_el {
+    background-image: linear-gradient(0deg, rgba(225, 225, 225, 0.619),
+            rgba(255, 255, 255, 0.914));
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .15),
+        inset -2px -2px rgba(0, 0, 0, 0.027);
+    backdrop-filter: blur(10px);
+}
+
+/* ----------頁首區---------- */
+#header_el {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#header_el .topbar_el section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#header_el .topbar_el {
+    position: fixed;
+    width: 90px;
+    max-width: 550px;
+    height: 90px;
+    padding: 14px;
+    margin-top: 40px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 99px;
+    transition: width 1s ease, border-radius 1s ease, justify-content 1s ease;
+    z-index: 999;
+}
+
+@media (max-width:1439px) {
+    #header_el .topbar_el {
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+}
+
+#header_el .topbar_el .logo_el {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header_el .topbar_el .logo_el a {
+    width: 60px;
+}
+
+#header_el .topbar_el.collapsed {
+    width: 90px;
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+#header_el .topbar_el:hover {
+    width: 40%;
+    max-width: 550px;
+    border-radius: 99px;
+    justify-content: space-between;
+}
+
+
+
+#header_el .topbar_el .menu_el {
+    
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    white-space: nowrap;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s ease-in-out, visibility 0s 0.3s;
+}
+
+/* header .topbar_el 選項 hover效果 */
+#header_el .topbar_el .menu_el a {
+    display: block;
+    color: var(--darkgrey);
+    font-weight: 900;
+    letter-spacing: .2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+#header_el .topbar_el .menu_el a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    height: .6px;
+    background-color: var(--lightgrey);
+    transition: left 0.5s ease-in-out, right 0.5s ease-in-out;
+    /* 改變 transition 參數 */
+}
+
+#header_el .topbar_el .menu_el a:hover::after {
+    left: 0;
+    right: 0;
+}
+
+
+#header_el .topbar_el.collapsed .menu_el {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0s 0.2s;
+}
+
+
+#header_el .topbar_el:hover .menu_el {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 2s ease, visibility 0s 0.2s;
+    justify-content: space-around;
+}
+
+
+
+/* login按鈕位置 */
+#header_el .writeBtn_el {
+    position: absolute;
+    top: 40px;
+    right: 150px;
+}
+
+#header_el .account_login_el,
+#header_el .account_logout_el {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
+#loginBtn_el,
+#logoutBtn_el,
+#writeBtn_el {
+    background-color:var(--alpha-w-60);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .15),
+        inset -2px -2px rgba(0, 0, 0, 0.027);
+    backdrop-filter: blur(10px);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-size: .85rem;
+    font-weight: 450;
+    letter-spacing: 1px;
+    opacity: 1;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#loginBtn_el:hover,
+#logoutBtn_el:hover,
+#writeBtn_el:hover {
+    background-color: var(--alpha-b-70);
+    color: var(--white);
+    opacity: 1;
+}
+
+#header_el .account_login_el a {
+    color: #000000;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+#header_el .left_slogan_el {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+#header_el .left_slogan_el h1 {
+    color: #ffffff;
+    margin: 3rem 0 1rem 0;
+    align-self: flex-start;
+    width: 100%;
+    text-align: left;
+    font-family: "Mallanna", sans-serif;
+    font-size: clamp(2rem, 2.8vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: .2rem;
+}
+
+#header_el .left_slogan_el p {
+    color: #ffffff;
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-size: clamp(1.5rem, 1.2vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: .7rem;
+}
+
+
+#header_el .slogan_el {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+}
+
+#header_el .slogan_el h1 {
+    color: #ffffff;
+    width: 100%;
+    font-family: "Mallanna", sans-serif;
+    font-size: clamp(2.8rem, 3vw, 4rem);
+    font-weight: 500;
+    letter-spacing: .2rem;
+    margin-bottom: 4rem;
+}
+
+
+/* 登入按鈕表單 */
+/* 遮罩層樣式 */
+#account_overlay_el {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    display: none;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+/* 彈出視窗樣式 */
+#loginWindow_el {
+    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    background-color: #F5F5F5;
+    width: 400px;
+    height: 50vh;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.contant_el {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* 關閉按鈕樣式 */
+#closebtn_el img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: .25s ease-in-out;
+}
+
+#closebtn_el img:hover {
+    opacity: 60%;
+}
+
+/* login底線 */
+.login_border_el {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: #484848 solid 2px;
+    pointer-events: none;
+}
+
+/* login字樣 */
+#loginWindow_el h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    font-size: 2rem;
+    letter-spacing: .3rem;
+    color: #484848;
+}
+
+/* 登入表單 */
+#member_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 50%;
+    margin-bottom: 40px;
+}
+
+#member_form input {
+    width: 100%;
+    height: 2rem;
+    padding-left: 10px;
+    color: black;
+    font-weight: 400;
+    border: 1px solid #8B8B8B;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+/* :focus偽類別 形容狀態  */
+#member_form input:focus,
+#member_form textarea {
+    /* 修改focus預設樣式 */
+    outline: 1px solid #105a5e;
+}
+
+#member_form input::placeholder {
+    font-size: .8rem;
+    font-weight: 400;
+    color: #8B8B8B;
+}
+
+/* 忘記密碼字樣 */
+.forget_passward {
+    text-align: end;
+    width: 100%;
+}
+
+#loginWindow_el small {
+    font-size: clamp(.6rem, 1.5vw, .7rem);
+    letter-spacing: 1px;
+    color: var(--lightgrey);
+    cursor: pointer;
+}
+
+
+/* 登入註冊按鈕 */
+.button_el {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.button_el button {
+    width: 40%;
+    height: 30px;
+    background-color: #155569;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s ease;
+    letter-spacing: 5px;
+}
+
+.button_el button:hover {
+    background-color: #155569c9;
+}
+
+/* 快速登入 */
+.fast__login {
+    position: relative;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fast__login p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(.6rem, 1.5vw, .7rem);
+    letter-spacing: 1px;
+    background-color: #F5F5F5;
+    padding: 0 10px;
+    color: var(--lightgrey);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.icon_el {
+    width: 90%;
+    height: 14%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon_el li {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+.icon_el-fb,
+.icon_el-mail,
+.icon_el-line {
+    width: 60%;
+    height: 60%;
+    transition: .5s ease;
+    background-size: contain;
+    /* 定住左上方 短邊維持 長邊自動剪裁 不會重複拼貼 */
+    background-position: center, center;
+    background-repeat: no-repeat;
+}
+
+.icon_el-fb {
+    background-image: url(../img/svg/facebook.svg);
+}
+
+.icon_el-mail {
+    background-image: url(../img/svg/google.svg);
+}
+
+.icon_el-line {
+    background-image: url(../img/svg/line.svg);
+}
+
+.icon_el-fb:hover,
+.icon_el-mail:hover,
+.icon_el-line:hover {
+    opacity: 0.7;
+}
