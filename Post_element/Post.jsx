@@ -1,12 +1,16 @@
 // 文章視窗元件
 function Post(props) {
-    const { target, user_img, user_name, post_time, art_title, hashtag1, hashtag2, hashtag3, art_content, heart_num, comment_num, bookMark_num, time, time2, time3,user_url, user_url2, user_url3, userName, userName2, userName3,user_time, user_time2, user_time3,floor, floor2, floor3,content, content2, content3,heart_cmt, heart_cmt2, heart_cmt3,comment_cmt, comment_cmt2,comment_cmt3 } = props;
+    const { target, user_img, user_name, post_time, art_title, hashtag1, hashtag2, hashtag3, art_content, heart_num, comment_num, bookMark_num,
+        time, user_url, userName, user_time, floor,content,heart_cmt,comment_cmt,
+        time2, user_url2, userName2, user_time2,floor2,content2,heart_cmt2,comment_cmt2,
+        time3,user_url3, userName3, user_time3,floor3,content3,heart_cmt3,comment_cmt3,
+        time4, user_url4, userName4, user_time4, floor4,content4,heart_cmt4,comment_cmt4,
+        time5, user_url5, userName5, user_time5, floor5,content5,heart_cmt5,comment_cmt5} = props;
     const artId = `content-${target}`;
-
+    
     return (
         <>
             <div id="overlay" className="overlay"></div>
-
 
             <div id={artId} className="content hidden">
                 <figure className="closebtn"><img src="./img/forum/account/iconmonstr-x.svg" alt="" /></figure>
@@ -22,7 +26,7 @@ function Post(props) {
                     <small>{hashtag3}</small>
                 </div>
                 <div className="padding">
-                    <p id="p">{art_content}</p>
+                    <p id="p">{art_content}</p>                    
                     <div id="like">
                         <div id="heart">
                             <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
@@ -109,6 +113,48 @@ function Post(props) {
                                 <div id="comment">
                                     <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg" alt="" />
                                     <p id="comment_num">{comment_cmt3}</p>
+                                </div>
+                                <small>查看更多回覆</small>
+                            </div>
+                            <hr />
+                        </div>
+                        <div className="comment" data-timestamp={time4}>
+                            <div className="comment_user">
+                                <figure><img src={user_url4} alt="" /></figure>
+                                <h2>{userName4}</h2>
+                                <small>{user_time4}</small>
+                                <small>{floor4}</small>
+                            </div>
+                            <p>{content4}</p>
+                            <div id="like">
+                                <div id="heart">
+                                    <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
+                                    <p id="heart_num">{heart_cmt4}</p>
+                                </div>
+                                <div id="comment">
+                                    <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg" alt="" />
+                                    <p id="comment_num">{comment_cmt4}</p>
+                                </div>
+                                <small>查看更多回覆</small>
+                            </div>
+                            <hr />
+                        </div>
+                        <div className="comment" data-timestamp={time5}>
+                            <div className="comment_user">
+                                <figure><img src={user_url5} alt="" /></figure>
+                                <h2>{userName5}</h2>
+                                <small>{user_time5}</small>
+                                <small>{floor5}</small>
+                            </div>
+                            <p>{content5}</p>
+                            <div id="like">
+                                <div id="heart">
+                                    <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
+                                    <p id="heart_num">{heart_cmt5}</p>
+                                </div>
+                                <div id="comment">
+                                    <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg" alt="" />
+                                    <p id="comment_num">{comment_cmt5}</p>
                                 </div>
                                 <small>查看更多回覆</small>
                             </div>

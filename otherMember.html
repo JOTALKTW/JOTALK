@@ -87,11 +87,11 @@
                         <div class="collect-article">
                             <img class="article" data-target="content-2" src="./img/member/otherMember/forum-2.png"
                                 draggable="false">
-                            <img class="article" data-target="content-1" src="./img/member/otherMember/forum-7.png"
+                            <img class="article" data-target="content-2" src="./img/member/otherMember/forum-7.png"
                                 draggable="false">
-                            <img class="article" data-target="content-1" src="./img/member/otherMember/forum-3.png"
+                            <img class="article" data-target="content-2" src="./img/member/otherMember/forum-3.png"
                                 draggable="false">
-                            <img class="article" data-target="content-1" src="./img/member/otherMember/forum-6.png"
+                            <img class="article" data-target="content-2" src="./img/member/otherMember/forum-6.png"
                                 draggable="false">
                         </div>
                         <div class="collect-member">
@@ -147,12 +147,12 @@
                         content2: '說啥呢這哥',
                         heart_cmt2: 99,
                         comment_cmt2: 10,
-                        user_url3: './img/forum/account/user/user4.jpg',
+                        user_url3: './img/forum/account/user/user9.jpg',
                         userName3: '龍潭薯條殺手',
                         time3: '2024-09-20T20:40:00',
                         user_time3: '9月20日 20:40',
                         floor3: 'B3',
-                        content3: '這我連回都不想回= =',
+                        content3: '這我連回都不想回(但我還是回了= =)',
                         heart_cmt3: 66,
                         comment_cmt3: 6
                     },
@@ -185,7 +185,31 @@
                         floor2: 'B2',
                         content2: 'fake sober 才是最頂 不服來辯',
                         heart_cmt2: 266,
-                        comment_cmt2: 56
+                        comment_cmt2: 56,
+                        user_url3: './img/forum/account/user/user8.jpg',
+                        userName3: '古亭波奇',
+                        time3: '2024-09-24T21:40:00',
+                        user_time3: '9月24日 21:40',
+                        floor3: 'B3',
+                        content3: '小朋友才去Fake sober🙂',
+                        heart_cmt3: 66,
+                        comment_cmt3: 6,
+                        user_url4: './img/forum/account/user/user10.jpg',
+                        userName4: '基隆倉鼠王',
+                        time4: '2024-09-24T21:45:00',
+                        user_time4: '9月24日 21:45',
+                        floor4: 'B4',
+                        content4: '哥可以帶上我嗎?',
+                        heart_cmt4: 150,
+                        comment_cmt4: 10,
+                        user_url5: './img/forum/account/user/user11.jpg',
+                        userName5: '大同區翰哥',
+                        time5: '2024-09-24T21:50:00',
+                        user_time5: '9月24日 21:50',
+                        floor5: 'B5',
+                        content5: '我剛剛有經過那邊耶 現場人山人海',
+                        heart_cmt5: 150,
+                        comment_cmt5: 10
                     }
                 ]
 
@@ -197,12 +221,23 @@
                     <>
                         {
                             article.slice(0, 1).map((item) => {
-                                return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title} hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} time={item.time} time2={item.time2} time3={item.time3} user_url={item.user_url} user_url2={item.user_url2} user_url3={item.user_url3} userName={item.userName} userName2={item.userName2} userName3={item.userName3} user_time={item.user_time} user_time2={item.user_time2} user_time3={item.user_time3} floor={item.floor} floor2={item.floor2} floor3={item.floor3} content={item.content} content2={item.content2} content3={item.content3} heart_cmt={item.heart_cmt} heart_cmt2={item.heart_cmt2} heart_cmt3={item.heart_cmt3} comment_cmt={item.comment_cmt} comment_cmt2={item.comment_cmt2} comment_cmt3={item.comment_cmt3}/>
+                                return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title}
+                                hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} 
+                                time={item.time} user_url={item.user_url} userName={item.userName} user_time={item.user_time} floor={item.floor} content={item.content} heart_cmt={item.heart_cmt} comment_cmt={item.comment_cmt}
+                                time2={item.time2} user_url2={item.user_url2} userName2={item.userName2} user_time2={item.user_time2} floor2={item.floor2} content2={item.content2} heart_cmt2={item.heart_cmt2} comment_cmt2={item.comment_cmt2}
+                                time3={item.time3} user_url3={item.user_url3} userName3={item.userName3} user_time3={item.user_time3} floor3={item.floor3} content3={item.content3} heart_cmt3={item.heart_cmt3} comment_cmt3={item.comment_cmt3}/>
                             })
                         }
                         {
                             article.slice(1, 2).map((item) => {
-                                return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title} hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} time={item.time} time2={item.time2} user_url={item.user_url} user_url2={item.user_url2} userName={item.userName} userName2={item.userName2} user_time={item.user_time} user_time2={item.user_time2} floor={item.floor} floor2={item.floor2} content={item.content} content2={item.content2} heart_cmt={item.heart_cmt} heart_cmt2={item.heart_cmt2} comment_cmt={item.comment_cmt} comment_cmt2={item.comment_cmt2} />
+                                <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title}
+                                hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} 
+                                time={item.time} user_url={item.user_url} userName={item.userName} user_time={item.user_time} floor={item.floor} content={item.content} heart_cmt={item.heart_cmt} comment_cmt={item.comment_cmt}
+                                time2={item.time2} user_url2={item.user_url2} userName2={item.userName2} user_time2={item.user_time2} floor2={item.floor2} content2={item.content2} heart_cmt2={item.heart_cmt2} comment_cmt2={item.comment_cmt2}
+                                time3={item.time3} user_url3={item.user_url3} userName3={item.userName3} user_time3={item.user_time3} floor3={item.floor3} content3={item.content3} heart_cmt3={item.heart_cmt3} comment_cmt3={item.comment_cmt3}
+                                time4={item.time4} user_url4={item.user_url4} userName4={item.userName4} user_time4={item.user_time4} floor4={item.floor4} content4={item.content4} heart_cmt4={item.heart_cmt4} comment_cmt4={item.comment_cmt4}
+                                time5={item.time5} user_url5={item.user_url5} userName5={item.userName5} user_time5={item.user_time5} floor5={item.floor5} content5={item.content5} heart_cmt5={item.heart_cmt5} comment_cmt5={item.comment_cmt5}
+                                />
                             })
                         }
                     </ >
