@@ -14,149 +14,141 @@
 
     <script type="text/babel" src="./Footer_element/Footer.jsx"></script>
     <link rel="stylesheet" href="./Footer_element/Footer.css">
-    
+
     <link rel="stylesheet" href="./css/forum_teach.css">
 </head>
 
 <body>
     <!-- 頁首元件 -->
-    <div id="header"></div>
-    <script type="text/babel">
-        function App() {
-            
-            React.useEffect(() => {
-                login();
-            }, []); // 空依賴陣列表示只在組件掛載和卸載時執行
-
-            return (
-                <Header h1="LET'S JOTALK" bg='./img/forum/teach/teach_head_pic.jpg' leftSlogan='' slogan={true} btn={true} />
-            )
-        }
-        ReactDOM
-            .createRoot(document.getElementById('header'))
-            .render(<App />)
-    </script>
-    <main>
-        <div class="teach_content">
-            <!-- 上區 -->
-            <div class="top-section">
-                <div class="categories">
-                    <div class="category active" data-target="teach_baseWine">六大基酒</div>
-                    <div class="category" data-target="teach_bartendWine">經典調酒</div>
-                    <div class="category" data-target="teach_teachWine">調酒教學</div>
-                </div>
-            </div>
-            <!-- 下區 -->
-            <div class="teach_atc">
-                <!-- 六大基酒 -->
-                <div class="teach_picBase active" id="teach_baseWine">
-                    <section id="pic1-1" class="section"></section>
-                    <section id="pic1-2" class="section"></section>
-                    <section id="pic1-3" class="section"></section>
-                    <section id="pic1-4" class="section"></section>
-                    <section id="pic1-5" class="section"></section>
-                    <section id="pic1-6" class="section"></section>
-                </div>
-                <div class="site-headerBase active">
-                    <ul class="indicator">
-                        <li><a href="#pic1-1">白蘭地</a></li>
-                        <li><a href="#pic1-2">琴 酒</a></li>
-                        <li><a href="#pic1-3">龍舌蘭</a></li>
-                        <li><a href="#pic1-4">蘭姆酒</a></li>
-                        <li><a href="#pic1-5">伏特加</a></li>
-                        <li><a href="#pic1-6">威士忌</a></li>
-                    </ul>
-                </div>
-
-                <!-- 經典調酒 -->
-                <div class="teach_picBartend" id="teach_bartendWine">
-                    <section id="pic2-1" class="section"></section>
-                    <section id="pic2-2" class="section"></section>
-                    <section id="pic2-3" class="section"></section>
-                    <section id="pic2-4" class="section"></section>
-                    <section id="pic2-5" class="section"></section>
-                    <section id="pic2-6" class="section"></section>
-                </div>
-                <div class="site-headerBartend">
-                    <ul class="indicator">
-                        <li><a href="#pic2-1">側車</a></li>
-                        <li><a href="#pic2-2">琴費司</a></li>
-                        <li><a href="#pic2-3">瑪格莉特</a></li>
-                        <li><a href="#pic2-4">長島冰茶</a></li>
-                        <li><a href="#pic2-5">柯夢波丹</a></li>
-                        <li><a href="#pic2-5">古典雞尾酒</a></li>
-                    </ul>
-                </div>
-
-                <!-- 調酒教學 -->
-                <div class="teach_picTeach" id="teach_teachWine">
-                    <section id="pic3-1" class="section">
-                        <div>
-                            <iframe width="900" height="560"
-                                src="https://www.youtube.com/embed/b0IuTL3Z-kk?si=uJstMqM7FLM_X30B&mute=1"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
-                        </div>
-                    </section>
-                    <section id="pic3-2" class="section">
-                        <div>
-                            <iframe width="900" height="560"
-                                src="https://www.youtube.com/embed/ytSyvTKgKO8?si=GbB-V7_zckeFAQz9&mute=1"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
-                        </div>
-                    </section>
-                    <section id="pic3-3" class="section">
-                        <div>
-                            <iframe width="900" height="560"
-                                src="https://www.youtube.com/embed/AWnIqpsfyPU?si=JO_n8th_oibJMg1e&mute=1"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
-                        </div>
-                    </section>
-                    <section id="pic3-4" class="section">
-                        <div>
-                            <iframe width="900" height="560"
-                                src="https://www.youtube.com/embed/IRkM8jsG-hY?si=pM5qk5AC37ELK4sF&mute=1"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    </section>
-                    <section id="pic3-5" class="section">
-                        <div>
-                            <iframe width="900" height="560"
-                                src="https://www.youtube.com/embed/MRcXtKSk7lo?si=vxGyp9pKGcIdJ3nm"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    </section>
-                </div>
-                <div class="site-headerTeach">
-                    <ul class="indicator">
-                        <li><a href="#pic3-1">入門款介紹</a></li>
-                        <li><a href="#pic3-2">在家也能調</a></li>
-                        <li><a href="#pic3-3">器材大哉問</a></li>
-                        <li><a href="#pic3-4">客製化研發</a></li>
-                        <li><a href="#pic3-5">把酒入菜中</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </main>
     <div id="root"></div>
     <script type="text/babel">
         function App() {
-            // jsx語法
+
+            React.useEffect(() => {
+                login();
+                original_teach()
+            }, []); // 空依賴陣列表示只在組件掛載和卸載時執行
+
             return (
-                <Footer />
+                <>
+                    <Header h1="LET'S JOTALK" bg='./img/forum/teach/teach_head_pic.jpg' leftSlogan='' slogan={true} btn={true} />
+                    <main>
+                        <div class="teach_content">
+
+                            <div class="top-section">
+                                <div class="categories">
+                                    <div class="category active" data-target="teach_baseWine">六大基酒</div>
+                                    <div class="category" data-target="teach_bartendWine">經典調酒</div>
+                                    <div class="category" data-target="teach_teachWine">調酒教學</div>
+                                </div>
+                            </div>
+
+                            <div class="teach_atc">
+
+                                <div class="teach_picBase active" id="teach_baseWine">
+                                    <section id="pic1-1" class="section"></section>
+                                    <section id="pic1-2" class="section"></section>
+                                    <section id="pic1-3" class="section"></section>
+                                    <section id="pic1-4" class="section"></section>
+                                    <section id="pic1-5" class="section"></section>
+                                    <section id="pic1-6" class="section"></section>
+                                </div>
+                                <div class="site-headerBase active">
+                                    <ul class="indicator">
+                                        <li><a href="#pic1-1">白蘭地</a></li>
+                                        <li><a href="#pic1-2">琴 酒</a></li>
+                                        <li><a href="#pic1-3">龍舌蘭</a></li>
+                                        <li><a href="#pic1-4">蘭姆酒</a></li>
+                                        <li><a href="#pic1-5">伏特加</a></li>
+                                        <li><a href="#pic1-6">威士忌</a></li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="teach_picBartend" id="teach_bartendWine">
+                                    <section id="pic2-1" class="section"></section>
+                                    <section id="pic2-2" class="section"></section>
+                                    <section id="pic2-3" class="section"></section>
+                                    <section id="pic2-4" class="section"></section>
+                                    <section id="pic2-5" class="section"></section>
+                                    <section id="pic2-6" class="section"></section>
+                                </div>
+                                <div class="site-headerBartend">
+                                    <ul class="indicator">
+                                        <li><a href="#pic2-1">側車</a></li>
+                                        <li><a href="#pic2-2">琴費司</a></li>
+                                        <li><a href="#pic2-3">瑪格莉特</a></li>
+                                        <li><a href="#pic2-4">長島冰茶</a></li>
+                                        <li><a href="#pic2-5">柯夢波丹</a></li>
+                                        <li><a href="#pic2-5">古典雞尾酒</a></li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="teach_picTeach" id="teach_teachWine">
+                                    <section id="pic3-1" class="section">
+                                        <div>
+                                            <iframe width="900" height="560"
+                                                src="https://www.youtube.com/embed/b0IuTL3Z-kk?si=uJstMqM7FLM_X30B&mute=1"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                    </section>
+                                    <section id="pic3-2" class="section">
+                                        <div>
+                                            <iframe width="900" height="560"
+                                                src="https://www.youtube.com/embed/ytSyvTKgKO8?si=GbB-V7_zckeFAQz9&mute=1"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                    </section>
+                                    <section id="pic3-3" class="section">
+                                        <div>
+                                            <iframe width="900" height="560"
+                                                src="https://www.youtube.com/embed/AWnIqpsfyPU?si=JO_n8th_oibJMg1e&mute=1"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                    </section>
+                                    <section id="pic3-4" class="section">
+                                        <div>
+                                            <iframe width="900" height="560"
+                                                src="https://www.youtube.com/embed/IRkM8jsG-hY?si=pM5qk5AC37ELK4sF&mute=1"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+                                    </section>
+                                    <section id="pic3-5" class="section">
+                                        <div>
+                                            <iframe width="900" height="560"
+                                                src="https://www.youtube.com/embed/MRcXtKSk7lo?si=vxGyp9pKGcIdJ3nm"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="site-headerTeach">
+                                    <ul class="indicator">
+                                        <li><a href="#pic3-1">入門款介紹</a></li>
+                                        <li><a href="#pic3-2">在家也能調</a></li>
+                                        <li><a href="#pic3-3">器材大哉問</a></li>
+                                        <li><a href="#pic3-4">客製化研發</a></li>
+                                        <li><a href="#pic3-5">把酒入菜中</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <Footer />
+                </>
             )
         }
         ReactDOM

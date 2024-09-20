@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function original_teach() {
     let currentIndex = 0; // 當前顯示的圖片索引
     const categories = document.querySelectorAll('.top-section .categories .category');
     const teachAtc = document.querySelector('.teach_atc');
@@ -90,5 +90,4 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.teach_atc .indicator a').forEach(indicator => indicator.addEventListener('click', handleIndicatorClick));
 
     showSection(currentIndex); // 初始化顯示第一張圖片和對應指示器
-});
-
+}
