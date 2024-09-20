@@ -75,6 +75,12 @@ a {
 }
 
 /* 內容區 */
+.all{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 main {
     display: flex;
     justify-content: center;
