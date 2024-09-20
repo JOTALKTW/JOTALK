@@ -22,7 +22,7 @@
 
 <body>
     <!-- 頁首元件 -->
-    <div id="header"></div>
+    <div id="root"></div>
     <script type="text/babel">
         function App() {
 
@@ -31,48 +31,38 @@
             }, []); // 空依賴陣列表示只在組件掛載和卸載時執行
 
             return (
-                <Header h1="LET'S JOTALK" bg='./img/forum/forum_head_pic.jpg' leftSlogan='' slogan={true} btn={true} />
+                <>
+                    <Header h1="LET'S JOTALK" bg='./img/forum/forum_head_pic.jpg' leftSlogan='' slogan={true} btn={true} />
+                    <main>
+                        <img class="forum-bg" src="./img/about/about-bg.jpg"></img>
+                        <div class="container">
+                            <section id="level">
+                                <h2>會員階級獎勵</h2>
+                                <div class="wrap">
+                                    <img src="./img/forum/award/level.png" draggable="false" />
+                                </div>
+                            </section>
+                            <section id="new">
+                                <h2>新會員獎勵</h2>
+                                <div class="wrap">
+                                    <img src="./img/forum/award/new-member.png" draggable="false" />
+                                </div>
+                            </section>
+                            <section id="other">
+                                <h2>其他獎勵</h2>
+                                <div class="wrap">
+                                    <img src="./img/forum/award/other.png" draggable="false" />
+                                </div>
+                            </section>
+                        </div>
+                    </main>
+                    <Footer />
+                </>
             )
         }
 
         ReactDOM
-            .createRoot(document.getElementById('header'))
-            .render(<App />)
-    </script>
-    <main>
-        <img class="forum-bg" src="./img/about/about-bg.jpg"></img>
-        <div class="container">
-            <section id="level">
-                <h2>會員階級獎勵</h2>
-                <div class="wrap">
-                    <img src="./img/forum/award/level.png" draggable="false">
-                </div>
-            </section>
-            <section id="new">
-                <h2>新會員獎勵</h2>
-                <div class="wrap">
-                    <img src="./img/forum/award/new-member.png" draggable="false">
-                </div>
-            </section>
-            <section id="other">
-                <h2>其他獎勵</h2>
-                <div class="wrap">
-                    <img src="./img/forum/award/other.png" draggable="false">
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <div id="footer"></div>
-    <script type="text/babel">
-        function App() {
-            return (
-                <Footer />
-            )
-        }
-        ReactDOM
-            .createRoot(document.getElementById('footer'))
+            .createRoot(document.getElementById('root'))
             .render(<App />)
     </script>
     <script src="./Header_element/login.js"></script>
