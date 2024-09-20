@@ -108,12 +108,3 @@ function original_member() {
         document.querySelector('.nav-mb-bar').click();
 }
 
-
-
-
-
-
-
-
-
-
