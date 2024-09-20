@@ -1,5 +1,6 @@
 function original_barlist() {
     // 左邊標籤切換
+
         const tagCategories = document.querySelectorAll('.tag_category');
         const tagTitles = document.querySelectorAll('.tag_title');
         const left_tagItems = document.querySelectorAll('.tag_item');
@@ -45,7 +46,6 @@ function original_barlist() {
 
 
     // 左邊地區隨右邊標籤切換
-
 
         const tagsBox = document.querySelector('.tags_box');
         const tagItems = document.querySelectorAll('.tag_item');
@@ -126,7 +126,6 @@ function original_barlist() {
                 updateListItems();
             });
         });
-
 
 
     function setupPreviewClick() {
