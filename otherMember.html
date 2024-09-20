@@ -21,99 +21,19 @@
     <link rel="stylesheet" href="./Post_element/Post.css">
 
     <link rel="stylesheet" href="./css/otherMB.css">
+    
 </head>
 
 <body>
-    <div id="header"></div>
+    <div id="root"></div>
     <script type="text/babel">
+        const { useEffect } = React;
         function App() {
-
-            React.useEffect(() => {
+            useEffect(() => {
                 login();
+                post();
+                original_om()
             }, []);
-
-            return (
-                <Header h1='JOTALK MEMBER' p='酒說會員' bg='./img/member/otherMB-head.jpg' leftSlogan={true} slogan='' btn='' />
-            )
-        }
-        ReactDOM
-            .createRoot(document.getElementById('header'))
-            .render(<App />)
-    </script>
-    <main>
-        <img class="otherMB-bg" src="./img/bg-tree.jpg">
-        <section id="otherMB-content">
-            <div id="omb-left">
-                <ul class="userIfm">
-                    <img src="./img/member/user-pic.png" alt="會員頭像" draggable="false">
-                    <li class="userID">土城亨利</li>
-                    <li class="userLevel">會員等級：酒吧新手</li>
-                    <li class="userPostFollower">23篇文章　56人追蹤</li>
-                </ul>
-
-                <div class="nav-btn">
-                    <div class="nav-follow">
-                        <a href=""><img src="./img/member/Icon-follow.svg" draggable="false"></a>
-                        <a href="">
-                            <p>追蹤他</p>
-                        </a>
-                    </div>
-                    <ul class="nav-article category" data-target="omb-article"><a href="">他的文章</a></ul>
-                    <ul class="nav-collect category" data-target="omb-collect"><a href="">他的收藏</a></ul>
-                    <ul class="nav-visited category" data-target="omb-visited"><a href="">他的探店</a></ul>
-                </div>
-            </div>
-
-            <div id="omb-right">
-                <div id="omb-article">
-                    <img class="article" data-target="content-1" src="./img/member/otherMember/forum-1.png"
-                        draggable="false">
-                    <img class="article" data-target="content-1" src="./img/member/otherMember/forum-4.png"
-                        draggable="false">
-                    <img class="article" data-target="content-1" src="./img/member/otherMember/forum-5.png"
-                        draggable="false">
-                </div>
-
-                <div id="omb-collect">
-                    <div class="nav-ombCollect">
-                        <ul class="nav-omb-article collect" data-target="collect-bar"><a href="">酒吧收藏</a></ul>
-                        <ul class="nav-omb-collect collect" data-target="collect-article"><a href="">文章收藏</a></ul>
-                        <ul class="nav-omb-visited collect" data-target="collect-member"><a href="">酒友收藏</a></ul>
-                    </div>
-                    <div class="collect-content">
-                        <div class="collect-bar">
-                            <img src="./img/member/bar/collect-bar-1.png" draggable="false">
-                        </div>
-                        <div class="collect-article">
-                            <img class="article" data-target="content-2" src="./img/member/otherMember/forum-2.png"
-                                draggable="false">
-                            <img class="article" data-target="content-2" src="./img/member/otherMember/forum-7.png"
-                                draggable="false">
-                            <img class="article" data-target="content-2" src="./img/member/otherMember/forum-3.png"
-                                draggable="false">
-                            <img class="article" data-target="content-2" src="./img/member/otherMember/forum-6.png"
-                                draggable="false">
-                        </div>
-                        <div class="collect-member">
-                            <img src="./img/member/member-collect.png" draggable="false">
-                        </div>
-                    </div>
-                </div>
-                <div id="omb-visited">
-                    <div class="visited-bar">
-                        <img src="./img/member/bar/collect-bar-1.png" draggable="false">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-        <!-- 文章彈出頁 -->
-        <div id="post"></div>
-        <script type="text/babel">
-            function App() {
 
                 const article = [
                     {
@@ -233,50 +153,105 @@
                     post();
                 }, []);
 
-                return (
-                    <>
-                        {
-                            article.slice(0, 1).map((item) => {
-                                return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title}
-                                hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} 
-                                time={item.time} user_url={item.user_url} userName={item.userName} user_time={item.user_time} floor={item.floor} content={item.content} heart_cmt={item.heart_cmt} comment_cmt={item.comment_cmt}
-                                time2={item.time2} user_url2={item.user_url2} userName2={item.userName2} user_time2={item.user_time2} floor2={item.floor2} content2={item.content2} heart_cmt2={item.heart_cmt2} comment_cmt2={item.comment_cmt2}
-                                time3={item.time3} user_url3={item.user_url3} userName3={item.userName3} user_time3={item.user_time3} floor3={item.floor3} content3={item.content3} heart_cmt3={item.heart_cmt3} comment_cmt3={item.comment_cmt3}
-                                time4={item.time4} user_url4={item.user_url4} userName4={item.userName4} user_time4={item.user_time4} floor4={item.floor4} content4={item.content4} heart_cmt4={item.heart_cmt4} comment_cmt4={item.comment_cmt4}
-                                time5={item.time5} user_url5={item.user_url5} userName5={item.userName5} user_time5={item.user_time5} floor5={item.floor5} content5={item.content5} heart_cmt5={item.heart_cmt5} comment_cmt5={item.comment_cmt5}/>
-                            })
-                        }
-                        {
-                            article.slice(1, 2).map((item) => {
-                                return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title}
-                                hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num} 
-                                time={item.time} user_url={item.user_url} userName={item.userName} user_time={item.user_time} floor={item.floor} content={item.content} heart_cmt={item.heart_cmt} comment_cmt={item.comment_cmt}
-                                time2={item.time2} user_url2={item.user_url2} userName2={item.userName2} user_time2={item.user_time2} floor2={item.floor2} content2={item.content2} heart_cmt2={item.heart_cmt2} comment_cmt2={item.comment_cmt2}
-                                time3={item.time3} user_url3={item.user_url3} userName3={item.userName3} user_time3={item.user_time3} floor3={item.floor3} content3={item.content3} heart_cmt3={item.heart_cmt3} comment_cmt3={item.comment_cmt3}
-                                time4={item.time4} user_url4={item.user_url4} userName4={item.userName4} user_time4={item.user_time4} floor4={item.floor4} content4={item.content4} heart_cmt4={item.heart_cmt4} comment_cmt4={item.comment_cmt4}
-                                time5={item.time5} user_url5={item.user_url5} userName5={item.userName5} user_time5={item.user_time5} floor5={item.floor5} content5={item.content5} heart_cmt5={item.heart_cmt5} comment_cmt5={item.comment_cmt5}
-                                />
-                            })
-                        }
-                    </ >
-                )
-            }
-            ReactDOM
-                .createRoot(document.getElementById('post'))
-                .render(<App />)
-        </script>
-    </main>
-    <div id="footer"></div>
-
-    <script type="text/babel">
-        function App() {
             return (
-                <Footer />
-            )
+                <>
+                    <div class="all">
+                        <Header h1='JOTALK MEMBER' p='酒說會員' bg='./img/member/otherMB-head.jpg' leftSlogan={true} slogan='' btn='' />
+                        <main>
+                            <img className="otherMB-bg" src="./img/bg-tree.jpg" alt="背景" />
+                            <section id="otherMB-content">
+                                <div id="omb-left">
+                                    <ul className="userIfm">
+                                        <img src="./img/member/user-pic.png" alt="會員頭像" draggable="false" />
+                                        <li className="userID">土城亨利</li>
+                                        <li className="userLevel">會員等級：酒吧新手</li>
+                                        <li className="userPostFollower">23篇文章　56人追蹤</li>
+                                    </ul>
+
+                                    <div className="nav-btn">
+                                        <div className="nav-follow">
+                                            <a href=""><img src="./img/member/Icon-follow.svg" draggable="false" alt="追蹤圖示" /></a>
+                                            <a href="">
+                                                <p>追蹤他</p>
+                                            </a>
+                                        </div>
+                                        <ul className="nav-article category" data-target="omb-article"><a href="">他的文章</a></ul>
+                                        <ul className="nav-collect category" data-target="omb-collect"><a href="">他的收藏</a></ul>
+                                        <ul className="nav-visited category" data-target="omb-visited"><a href="">他的探店</a></ul>
+                                    </div>
+                                </div>
+
+                                <div id="omb-right">
+                                    <div id="omb-article">
+                                        <img className="article" data-target="content-1" src="./img/member/otherMember/forum-1.png" draggable="false" />
+                                        <img className="article" data-target="content-1" src="./img/member/otherMember/forum-4.png" draggable="false" />
+                                        <img className="article" data-target="content-1" src="./img/member/otherMember/forum-5.png" draggable="false" />
+                                    </div>
+
+                                    <div id="omb-collect">
+                                        <div className="nav-ombCollect">
+                                            <ul className="nav-omb-article collect" data-target="collect-bar"><a href="">酒吧收藏</a></ul>
+                                            <ul className="nav-omb-collect collect" data-target="collect-article"><a href="">文章收藏</a></ul>
+                                            <ul className="nav-omb-visited collect" data-target="collect-member"><a href="">酒友收藏</a></ul>
+                                        </div>
+                                        <div className="collect-content">
+                                            <div className="collect-bar">
+                                                <img src="./img/member/bar/collect-bar-1.png" draggable="false" />
+                                            </div>
+                                            <div className="collect-article">
+                                                <img className="article" data-target="content-2" src="./img/member/otherMember/forum-2.png" draggable="false" />
+                                                <img className="article" data-target="content-2" src="./img/member/otherMember/forum-7.png" draggable="false" />
+                                                <img className="article" data-target="content-2" src="./img/member/otherMember/forum-3.png" draggable="false" />
+                                                <img className="article" data-target="content-2" src="./img/member/otherMember/forum-6.png" draggable="false" />
+                                            </div>
+                                            <div className="collect-member">
+                                                <img src="./img/member/member-collect.png" draggable="false" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="omb-visited">
+                                        <div className="visited-bar">
+                                            <img src="./img/member/bar/collect-bar-1.png" draggable="false" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* 文章彈出頁 */}
+                            {
+                                article.slice(0, 1).map((item) => {
+                                    return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title}
+                                        hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num}
+                                        time={item.time} user_url={item.user_url} userName={item.userName} user_time={item.user_time} floor={item.floor} content={item.content} heart_cmt={item.heart_cmt} comment_cmt={item.comment_cmt}
+                                        time2={item.time2} user_url2={item.user_url2} userName2={item.userName2} user_time2={item.user_time2} floor2={item.floor2} content2={item.content2} heart_cmt2={item.heart_cmt2} comment_cmt2={item.comment_cmt2}
+                                        time3={item.time3} user_url3={item.user_url3} userName3={item.userName3} user_time3={item.user_time3} floor3={item.floor3} content3={item.content3} heart_cmt3={item.heart_cmt3} comment_cmt3={item.comment_cmt3}
+                                        time4={item.time4} user_url4={item.user_url4} userName4={item.userName4} user_time4={item.user_time4} floor4={item.floor4} content4={item.content4} heart_cmt4={item.heart_cmt4} comment_cmt4={item.comment_cmt4}
+                                        time5={item.time5} user_url5={item.user_url5} userName5={item.userName5} user_time5={item.user_time5} floor5={item.floor5} content5={item.content5} heart_cmt5={item.heart_cmt5} comment_cmt5={item.comment_cmt5} />
+                                })
+                            }
+                            {
+                                article.slice(1, 2).map((item) => {
+                                    return <Post key={item.id} target={item.target} user_img={item.user_img} user_name={item.user_name} post_time={item.post_time} art_title={item.art_title}
+                                        hashtag1={item.hashtag1} hashtag2={item.hashtag2} hashtag3={item.hashtag3} art_content={item.art_content} heart_num={item.heart_num} comment_num={item.comment_num} bookMark_num={item.bookMark_num}
+                                        time={item.time} user_url={item.user_url} userName={item.userName} user_time={item.user_time} floor={item.floor} content={item.content} heart_cmt={item.heart_cmt} comment_cmt={item.comment_cmt}
+                                        time2={item.time2} user_url2={item.user_url2} userName2={item.userName2} user_time2={item.user_time2} floor2={item.floor2} content2={item.content2} heart_cmt2={item.heart_cmt2} comment_cmt2={item.comment_cmt2}
+                                        time3={item.time3} user_url3={item.user_url3} userName3={item.userName3} user_time3={item.user_time3} floor3={item.floor3} content3={item.content3} heart_cmt3={item.heart_cmt3} comment_cmt3={item.comment_cmt3}
+                                        time4={item.time4} user_url4={item.user_url4} userName4={item.userName4} user_time4={item.user_time4} floor4={item.floor4} content4={item.content4} heart_cmt4={item.heart_cmt4} comment_cmt4={item.comment_cmt4}
+                                        time5={item.time5} user_url5={item.user_url5} userName5={item.userName5} user_time5={item.user_time5} floor5={item.floor5} content5={item.content5} heart_cmt5={item.heart_cmt5} comment_cmt5={item.comment_cmt5}
+                                    />
+                                })
+                            }
+                        </main>
+
+
+                        <Footer />
+                    </div>
+                </>
+            );
         }
-        ReactDOM
-            .createRoot(document.getElementById('footer'))
-            .render(<App />)
+
+        ReactDOM.createRoot(document.getElementById('root'))
+        .render(<App />);
     </script>
 
     <script src="./Header_element/login.js"></script>
