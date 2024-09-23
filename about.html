@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +10,10 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script type="text/babel" src="./Header_element/Header.jsx"></script>
+    <script type="text/babel" src="https://jotalktw.github.io/JOTALK/./Header_element/Header.jsx"></script>
     <link rel="stylesheet" href="./Header_element/Header.css">
 
-    <script type="text/babel" src="./Footer_element/Footer.jsx"></script>
+    <script type="text/babel" src="https://jotalktw.github.io/JOTALK/./Footer_element/Footer.jsx"></script>
     <link rel="stylesheet" href="./Footer_element/Footer.css">
 
     <link rel="stylesheet" href="./css/about.css">
@@ -75,82 +74,4 @@
     <script src="./Header_element/login.js"></script>
 </body>
 
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOTALK – 關於我們</title>
-    <link rel="icon" href="./favicon.ico">
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <script type="text/babel" src="./Header_element/Header.jsx"></script>
-    <link rel="stylesheet" href="./Header_element/Header.css">
-
-    <script type="text/babel" src="./Footer_element/Footer.jsx"></script>
-    <link rel="stylesheet" href="./Footer_element/Footer.css">
-
-    <link rel="stylesheet" href="./css/about.css">
-</head>
-
-<body>
-    <!-- 頁首元件 -->
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect } = React;
-        function App() {
-
-            // React.useEffect(() => {
-            useEffect(() => {
-                login();
-            }, []); //  空陣列表示只在組件掛載和卸載時執行
-
-            return (
-                <>
-                    <Header h1="ABOUT JOTALK" bg='./img/about/about-head-pic.jpg' leftSlogan={true} slogan={false} btn={true} />
-                    <main>
-                        <img class="about-bg" src="./img/about/about-bg.jpg" />
-                        <div class="about_content">
-                            <h2>關於酒說 <code class="engFont">JOTALK</code></h2>
-                            <div class="about_txt">
-                                <p>
-                                    沒有什麼煩惱是一杯酒精沒辦法解決的，如果一杯不夠，那就再點第二杯。<br />
-                                    <br />
-                                    再一次次生活的重壓下，有時我們只想找個地方跟朋友喝一杯，卻發現光是找個合適的地方，就要花費大量的時間和精力。<br />
-                                    當時我們就想：為什麼找個酒吧這麼難，一定有更輕鬆的方法吧？<br />
-                                    <code class="engFont">JOTALK</code> 就是為了實現這個想法而成立的。<br />
-                                    <br />
-                                    我們因為學習寫網頁而結識，會變成團隊，純粹是因為「酒鬼雷達」頻率太準而湊在一起。<br />
-                                    大家都是初學者，因此在開發 <code class="engFont">JOTALK</code> 的過程中，遇到了無數挑戰，舉凡任何開發網頁會碰到的問題，我們都踩過坑。<br />
-                                    幸運的是，我們認了一個可靠的大哥—ChatGPT，大哥是最閃亮的那顆救星，幫助我們解決了無數的技術難題。<br />
-                                    <br />
-                                    未來，我們希望能吸引更多志同道合的朋友加入我們的行列，一起打造一個更棒的酒吧社群。<br />
-                                    我們會持續調整和優化 <code class="engFont">JOTALK</code> 的功能，確保大家每次在 <code class="engFont">JOTALK</code>
-                                    上找到的，都是最符合你心中所想的那間酒吧。
-                                    <br />
-                                    <br />
-                                    生活總是把我們搞得破破爛爛，但我們學會了靠酒精來縫縫補補。<br />
-                                    隨著 <code class="engFont">JOTALK</code> 逐漸成形，我們的願景也變得更加清晰：希望大家每次的酒吧體驗，都能成為一次難忘的放鬆之旅。
-                                </p>
-                            </div>
-                            <a class="contactUs" href="https://forms.gle/vF3evQP9kiWntoF27">聯絡我們</a>
-                        </div>
-                    </main>
-                    <Footer />
-                </>
-            )
-        }
-        ReactDOM
-            .createRoot(document.getElementById('root'))
-            .render(<App />)
-    </script>
-
-    <script src="./Header_element/login.js"></script>
-</body>
-
->>>>>>> be73fe0146b4cfa7506323fcc3a86f8337bd1ad2
 </html>
