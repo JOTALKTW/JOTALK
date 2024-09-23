@@ -29,16 +29,16 @@ function Post(props) {
                     <p id="p">{art_content}</p>                    
                     <div id="like">
                         <div id="heart">
-                            <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
+                            <img id="heart_img" src="./img/forum/account/like/icon _heart_.svg" alt="" />
                             <p id="heart_num">{heart_num}</p>
                         </div>
                         <div id="comment">
-                            <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg"
+                            <img id="comment_img" src="./img/forum/account/like/icon _comment square_.svg"
                                 alt="" />
                             <p id="comment_num">{comment_num}</p>
                         </div>
                         <div id="bookMark">
-                            <img id="bookMark_img" src="../img/forum/account/like/icon _bookmark_.svg" alt="" />
+                            <img id="bookMark_img" src="./img/forum/account/like/icon _bookmark_.svg" alt="" />
                             <p id="bookMark_num">{bookMark_num}</p>
                         </div>
                     </div>
@@ -65,11 +65,11 @@ function Post(props) {
                             <p>{content}</p>
                             <div id="like">
                                 <div id="heart">
-                                    <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
+                                    <img id="heart_img" src="./img/forum/account/like/icon _heart_.svg" alt="" />
                                     <p id="heart_num">{heart_cmt}</p>
                                 </div>
                                 <div id="comment">
-                                    <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg" alt="" />
+                                    <img id="comment_img" src="./img/forum/account/like/icon _comment square_.svg" alt="" />
                                     <p id="comment_num">{comment_cmt}</p>
                                 </div>
                                 <small>查看更多回覆</small>
@@ -86,11 +86,11 @@ function Post(props) {
                             <p>{content2}</p>
                             <div id="like">
                                 <div id="heart">
-                                    <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
+                                    <img id="heart_img" src="./img/forum/account/like/icon _heart_.svg" alt="" />
                                     <p id="heart_num">{heart_cmt2}</p>
                                 </div>
                                 <div id="comment">
-                                    <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg" alt="" />
+                                    <img id="comment_img" src="./img/forum/account/like/icon _comment square_.svg" alt="" />
                                     <p id="comment_num">{comment_cmt2}</p>
                                 </div>
                                 <small>查看更多回覆</small>
@@ -107,11 +107,11 @@ function Post(props) {
                             <p>{content3}</p>
                             <div id="like">
                                 <div id="heart">
-                                    <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
+                                    <img id="heart_img" src="./img/forum/account/like/icon _heart_.svg" alt="" />
                                     <p id="heart_num">{heart_cmt3}</p>
                                 </div>
                                 <div id="comment">
-                                    <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg" alt="" />
+                                    <img id="comment_img" src="./img/forum/account/like/icon _comment square_.svg" alt="" />
                                     <p id="comment_num">{comment_cmt3}</p>
                                 </div>
                                 <small>查看更多回覆</small>
@@ -128,11 +128,11 @@ function Post(props) {
                             <p>{content4}</p>
                             <div id="like">
                                 <div id="heart">
-                                    <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
+                                    <img id="heart_img" src="./img/forum/account/like/icon _heart_.svg" alt="" />
                                     <p id="heart_num">{heart_cmt4}</p>
                                 </div>
                                 <div id="comment">
-                                    <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg" alt="" />
+                                    <img id="comment_img" src="./img/forum/account/like/icon _comment square_.svg" alt="" />
                                     <p id="comment_num">{comment_cmt4}</p>
                                 </div>
                                 <small>查看更多回覆</small>
@@ -149,11 +149,11 @@ function Post(props) {
                             <p>{content5}</p>
                             <div id="like">
                                 <div id="heart">
-                                    <img id="heart_img" src="../img/forum/account/like/icon _heart_.svg" alt="" />
+                                    <img id="heart_img" src="./img/forum/account/like/icon _heart_.svg" alt="" />
                                     <p id="heart_num">{heart_cmt5}</p>
                                 </div>
                                 <div id="comment">
-                                    <img id="comment_img" src="../img/forum/account/like/icon _comment square_.svg" alt="" />
+                                    <img id="comment_img" src="./img/forum/account/like/icon _comment square_.svg" alt="" />
                                     <p id="comment_num">{comment_cmt5}</p>
                                 </div>
                                 <small>查看更多回覆</small>
