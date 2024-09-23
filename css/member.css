@@ -124,11 +124,22 @@ main {
     white-space: nowrap;
 }
 
+.userIfm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .userIfm li {
     margin-top: 10px;
     font-family: "Noto Sans TC", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
+}
+
+.userIfm img {
+    width: 140px;
+    margin-bottom: 10px;
 }
 
 .userID {
@@ -201,6 +212,7 @@ main {
 /* 右側 */
 #member-right {
     width: 80%;
+    min-width: 858px;
     height: 100%;
     height: auto;
     min-height: 120vh;
@@ -545,10 +557,30 @@ main {
 }
 
 @media (max-width: 1090px) {
-    
-    #member-left{
+
+    #member-left {
         width: 10%;
         max-width: 120px;
+    }
+
+    .userIfm img {
+        width: 100px;
+    }
+
+    .userID {
+        font-size: 1.2rem;
+    }
+
+    .userLevel {
+        font-size: 1rem;
+    }
+
+    .userPostFollower {
+        font-size: 1rem;
+    }
+
+    #member-right {
+        min-width: 788px;
     }
 }
 
