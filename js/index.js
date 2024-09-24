@@ -73,21 +73,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // index-4 跑馬燈+反饋字卡
-document.addEventListener("DOMContentLoaded", () => {
-    const marqueeContainers = document.querySelectorAll('.marquee-container');
+// document.addEventListener("DOMContentLoaded", () => {
+//     const marqueeContainers = document.querySelectorAll('.marquee-container');
 
-    marqueeContainers.forEach(container => {
+//     marqueeContainers.forEach(container => {
 
-        const marqueeContent = container.querySelector('.marquee-content');
-        const contentHTML = marqueeContent.innerHTML;
-        // console.log('source:' + marqueeContent.innerHTML);
+//         const marqueeContent = container.querySelector('.marquee-content');
+//         const contentHTML = marqueeContent.innerHTML;
+//         // console.log('source:' + marqueeContent.innerHTML);
 
-        for (let i = 0; i < 10; i++) {
-            marqueeContent.innerHTML += contentHTML;
-            // console.log(`no${i}:` + marqueeContent.innerHTML);
-        }
+//         for (let i = 0; i < 10; i++) {
+//             marqueeContent.innerHTML += contentHTML;
+//             // console.log(`no${i}:` + marqueeContent.innerHTML);
+//         }
 
-    });
+//     });
 
     const feedbackCardsContainer = document.querySelector('.feedback-cards-container .feedback-cards');
     const feedbackCards = feedbackCardsContainer.innerHTML;
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         feedbackCardsContainer.style.transition = 'transform 3s ease';
         moveFeedbackCards();
     }, 4000);
-});
+// });
 
 
 // 偵測 "我的會員" 按鈕的點擊事件
